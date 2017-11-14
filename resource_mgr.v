@@ -1,11 +1,8 @@
-Require Import env_condition.
 Require Import yarn_config.
-Require Import other_rm.
 
-Inductive ResourceManager := Yarn | OtherRM.
+Inductive ResourceManager := Yarn.
 
-Definition rm_config_type (cdt: ENVCondition) (rm: ResourceManager): Type :=
+Definition rm_config_type (rm: ResourceManager): Type :=
   match rm with
-    | Yarn => YarnConfig cdt
-    | OtherRM => OtherRMConfig cdt
+    | Yarn => YarnConfig
   end.

@@ -1,10 +1,9 @@
 Require Import String.
 Open Scope string_scope.
-Require Import util.
-Require Import env_condition.
+Require Export util.
 
 (*Configuration for YARN sub-component*)
-Record YarnConfig (cdt: ENVCondition) := mk_yarn_config {
+Record YarnConfig := mk_yarn_config {
    yarn_app_mapreduce_am_command__opts: JavaOpts
   ;yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size: nat
   ;yarn_app_mapreduce_am_job_task_listener_thread__count: nat

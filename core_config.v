@@ -1,10 +1,9 @@
 Require Import String.
 Open Scope string_scope.
-Require Import util.
-Require Import env_condition.
+Require Export util.
 
 (*Configuration for Hadoop Core sub-component*)
-Record HadoopCoreConfig (cdt: ENVCondition) := mk_hadoop_core_config {
+Record HadoopCoreConfig := mk_hadoop_core_config {
    io_compression_codecs: string
   ;io_file_buffer_size: nat
   ;io_map_index_interval: nat

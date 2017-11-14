@@ -85,7 +85,6 @@ VFILES:=core_config.v\
   hadoop_config.v\
   hdfs_config.v\
   mapred_config.v\
-  other_rm.v\
   resource_mgr.v\
   testing.v\
   util.v\
