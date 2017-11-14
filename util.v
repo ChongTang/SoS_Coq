@@ -13,14 +13,27 @@ Record Range := mk_range {
   ;after_dash: nat
 }.
 
+
+Record JavaOptsUnit := M | G.
+Record JavaHeapType := Xmx | Xms.
+
 (*
 A Java opts is like -Xmx2000M. There are three parts:
 1. prefix string: -Xmx
 2. integer 2000
 3. the unit: M
-*)
+
+This is old implementation with prefix.
+
 Record JavaOpts := mk_java_opts {
-   type: string (*like -Xmx*)
-  ;number: nat  (* 2000 *)
-  ;unit: string (*like M*)
+   mem_prefix: JavaHeapType
+  ;heap_size: nat
+  ;heap_size_unit: JavaOptsUnit
+}.
+
+*)
+
+Record JavaOpts := mk_java_opts {
+   heap_size: nat
+  ;heap_size_unit: JavaOptsUnit
 }.

@@ -14,7 +14,7 @@ Definition float2 := mk_float 1 2.
 (*make a range value 0-2*)
 Definition range1 := mk_range 0 2.
 (*make a java opts value -Xmx2000M*)
-Definition java_opts1 := mk_java_opts "-Xmx" 20 "M". 
+Definition java_opts1 := mk_java_opts 20 M. 
 
 Definition total_cpu := 2.
 Definition total_mem := 200.
