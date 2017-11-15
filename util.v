@@ -14,8 +14,8 @@ Record Range := mk_range {
 }.
 
 
-Record JavaOptsUnit := M | G.
-Record JavaHeapType := Xmx | Xms.
+Inductive JavaOptsUnit := M | G.
+Inductive JavaHeapType := Xmx | Xms.
 
 (*
 A Java opts is like -Xmx2000M. There are three parts:

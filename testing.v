@@ -41,6 +41,12 @@ Definition mapred_config1 := mk_mapred_config
   range1 "task-profile"
   0 0 0 0 0.
 
+(*
+  Question: How can we provide proofs for MapRedConfig as needed,
+  but not named proofs. 
+  Because we don't know the value of cpu cores before definition.
+*)
+
 (*define a configuation for HDFS sub-component*)
 Definition hdfs_config1 := mk_hdfs_config 0 0.
 
@@ -66,6 +72,8 @@ configurations for sub-components.
 
 Here the resource manager is Yarn, so we provide yarn_config1 here.
 *)
+
+(*I have difficult to provide a proof for constraints in MapRedConfig*)
 Definition hadoop_config1 := mk_hadoop_config total_cpu total_mem
   Yarn yarn_config1 
   mapred_config1

@@ -6,7 +6,7 @@ Require Import util.
 (*
 Record MapRedConfig (cdt: ENVCondition) := mk_mapred_config {
 *)
-Record MapRedConfig (total_cpu: nat) (total_phy_mem:nat) := mk_mapred_config {
+Record MapRedConfig (total_cpu: nat) (total_phy_mem: nat) := mk_mapred_config {
    mapred_child_java_opts: JavaOpts
   ;mapred_map_output_compression_type: string
   ;mapreduce_ifile_readahead: bool
@@ -80,10 +80,13 @@ Record MapRedConfig (total_cpu: nat) (total_phy_mem:nat) := mk_mapred_config {
 
   (*some restrictions from environment conditions
   *first restriction: map CPU cores should less than total CPU cores.
+  *)
   ;map_cpu_core_le_total_cores: mapreduce_map_cpu_vcores < total_cpu
-  ;map_mem_le_total_mem: mapreduce_map_memory_mb < total_phy_mem*)
+  ;map_mem_le_total_mem: mapreduce_map_memory_mb < total_phy_mem
 
-  (*We can also define some constraints among parameters (internal constraints)*
-  *The first constraint is that the java heap space should be less than the memory for map tasks*
-  ;map_java_opts_le_map_mem: number mapreduce_map_java_opts < mapreduce_map_memory_mb *)
+  (*
+  We can also define some constraints among parameters (internal constraints)*
+  *The first constraint is that the java heap space should be less than the memory for map tasks
+  *)
+  ;map_java_opts_le_map_mem: heap_size mapreduce_map_java_opts < mapreduce_map_memory_mb
 }.
