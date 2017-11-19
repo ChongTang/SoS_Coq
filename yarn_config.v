@@ -12,7 +12,6 @@ Record YarnConfig := mk_yarn_config {
   ;yarn_nodemanager_container__manager_thread__count: nat
   ;yarn_nodemanager_localizer_client_thread__count: nat
   ;yarn_nodemanager_localizer_fetch_thread__count: nat
-  ;yarn_nodemanager_recovery_compaction__interval__secs: nat
   ;yarn_nodemanager_resource_cpu__vcores: nat
   ;yarn_nodemanager_resource_memory__mb: nat
   ;yarn_nodemanager_resource_percentage__physical__cpu__limit: nat (*100 means 100%*)

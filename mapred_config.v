@@ -29,7 +29,7 @@ Record MapRedConfig (total_cpu: nat) (total_phy_mem: nat) := mk_mapred_config {
   ;mapreduce_job_speculative_speculative__cap__running__tasks: Float
   ;mapreduce_job_speculative_speculative__cap__total__tasks: Float
   ;mapreduce_job_split_metainfo_maxsize: nat
-  ;mapreduce_job_ubertask_enable: string
+  ;mapreduce_job_ubertask_enable: bool
   ;mapreduce_job_ubertask_maxmaps: nat
   ;mapreduce_job_ubertask_maxreduces: nat
   ;mapreduce_jobtracker_expire_trackers_interval: nat
@@ -56,8 +56,6 @@ Record MapRedConfig (total_cpu: nat) (total_phy_mem: nat) := mk_mapred_config {
   ;mapreduce_reduce_maxattempts: nat
   ;mapreduce_reduce_memory_mb: nat
   ;mapreduce_reduce_merge_inmem_threshold: nat
-  ;mapreduce_reduce_shuffle_fetch_retry_interval__ms: nat
-  ;mapreduce_reduce_shuffle_fetch_retry_timeout__ms: nat
   ;mapreduce_reduce_shuffle_input_buffer_percent: Float
   ;mapreduce_reduce_shuffle_memory_limit_percent: Float
   ;mapreduce_reduce_shuffle_merge_percent: Float
@@ -71,7 +69,7 @@ Record MapRedConfig (total_cpu: nat) (total_phy_mem: nat) := mk_mapred_config {
   ;mapreduce_task_io_sort_mb: nat
   ;mapreduce_task_merge_progress_records: nat
   ;mapreduce_task_profile_maps: Range
-  ;mapreduce_task_profile_reduces: string
+  ;mapreduce_task_profile_reduces: Range
   ;mapreduce_tasktracker_http_threads: nat
   ;mapreduce_tasktracker_indexcache_mb: nat 
   ;mapreduce_tasktracker_map_tasks_maximum: nat
@@ -88,5 +86,5 @@ Record MapRedConfig (total_cpu: nat) (total_phy_mem: nat) := mk_mapred_config {
   We can also define some constraints among parameters (internal constraints)*
   *The first constraint is that the java heap space should be less than the memory for map tasks
   *)
-  ;map_java_opts_le_map_mem: heap_size mapreduce_map_java_opts < mapreduce_map_memory_mb
+  ;map_java_opts_le_map_mem: heap_size mapreduce_map_java_opts <= mapreduce_map_memory_mb
 }.
