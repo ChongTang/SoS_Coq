@@ -14,8 +14,8 @@ It also contains a few dependent types and constrains.
 Record HadoopConfig (total_cpu: nat) (total_phy_mem: nat)
   := mk_hadoop_config {
      resource_mgr: ResourceManager
-    ;rm_config: rm_config_type resource_mgr
-    ;mapred_config: MapRedConfig total_cpu total_phy_mem
+    ;rm_config: (rm_config_type resource_mgr)
+    ;mapred_config: (MapRedConfig total_cpu total_phy_mem)
     ;core_config: HadoopCoreConfig
     ;hdfs_config: HDFSConfig
 }.

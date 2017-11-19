@@ -1,6 +1,6 @@
 Require Import String.
 Open Scope string_scope.
-Require Export util.
+Require Export Top.util.
 
 (*Configuration for YARN sub-component*)
 Record YarnConfig := mk_yarn_config {
