@@ -1,27 +1,47 @@
 Require Import String.
 Open Scope string_scope.
+Require Import Omega.
 Require Import hadoop_config.
 
-(*This machine has 8 cores and 10240M memory allocated to Hadoop
-Definition env_condition1 := mk_condition 8 10240. 
-Compute (total_cpu env_condition1).
+(*
+Environment parameter values.
 *)
-
-(*make a float number 0.5*)
-Definition float1 := mk_float 0 5.
-(*make a float number 1.2*)
-Definition float2 := mk_float 1 2.
-(*make a range value 0-2*)
-Definition range1 := mk_range 0 2.
-(*make a java opts value -Xmx2000M*)
-Definition java_opts1 := mk_java_opts 20 M. 
-
 Definition total_cpu := 2.
 Definition total_mem := 200.
 
+
+(*
+Configuration parameter values.
+*)
+Definition my_mapreduce_map_cpu_vcores := 1.
+Definition my_mapreduce_map_memory_mb := 21. (* changed this to satisfy constraint *)
+Definition my_mapred_child_java_opts := mk_java_opts 20 M. 
+Definition my_mapreduce_map_java_opts := mk_java_opts 20 M. 
+Definition my_mapreduce_reduce_java_opts := mk_java_opts 20 M. 
+
+
+(*
+Configuration proofs of constraint integrity.
+*)
+Theorem mapreduce_map_cpu_vcores_le_total_cpu: 
+                 my_mapreduce_map_cpu_vcores < total_cpu. 
+Proof.
+unfold my_mapreduce_map_cpu_vcores; unfold total_cpu; omega. 
+Qed.
+
+Theorem my_mapreduce_map_memory_mb_le_total_mem: 
+                  my_mapreduce_map_memory_mb < total_mem.
+Proof.
+unfold my_mapreduce_map_memory_mb; unfold total_mem; omega.
+Qed.
+
+Theorem my_mapreduce_map_java_opts_lt_my_mapreduce_map_memory_mb:
+                  heap_size my_mapreduce_map_java_opts < my_mapreduce_map_memory_mb.
+simpl. unfold my_mapreduce_map_memory_mb. omega. Qed.
+
 (*define a configuation for MapReduce sub-component*)
 Definition mapred_config1 := mk_mapred_config total_cpu total_mem 
-  java_opts1        (* mapred_child_java_opts: JavaOpts *)
+  my_mapred_child_java_opts        (* mapred_child_java_opts: JavaOpts *)
   "None"            (* mapred_map_output_compression_type: string *)
   true              (* mapreduce_ifile_readahead: bool *)
   0                 (* mapreduce_ifile_readahead_bytes: if (mapreduce_ifile_readahead) then nat else True *)
@@ -32,7 +52,7 @@ Definition mapred_config1 := mk_mapred_config total_cpu total_mem
   0                 (* mapreduce_job_jvm_numtasks: nat *)
   0                 (* mapreduce_job_maps: nat *)
   0                 (* mapreduce_job_max_split_locations: nat *)
-  float1            (* mapreduce_job_reduce_slowstart_completedmaps: Float *)
+  (mk_float 0 5)            (* mapreduce_job_reduce_slowstart_completedmaps: Float *)
   0                 (* mapreduce_job_reducer_unconditional__preempt_delay_sec: nat *)
   0                 (* mapreduce_job_reduces: nat *)
   0                 (* mapreduce_job_running_map_limit: nat *)
@@ -40,8 +60,8 @@ Definition mapred_config1 := mk_mapred_config total_cpu total_mem
   0                 (* mapreduce_job_speculative_minimum__allowed__tasks: nat *)
   0                 (* mapreduce_job_speculative_retry__after__no__speculate: nat *)
   0                 (* mapreduce_job_speculative_retry__after__speculate: nat *)
-  float2            (* mapreduce_job_speculative_speculative__cap__running__tasks: Float *)
-  float2            (* mapreduce_job_speculative_speculative__cap__total__tasks: Float *)
+  (mk_float 1 2)            (* mapreduce_job_speculative_speculative__cap__running__tasks: Float *)
+  (mk_float 1 2)            (* mapreduce_job_speculative_speculative__cap__total__tasks: Float *)
   0                 (* mapreduce_job_split_metainfo_maxsize: nat *)
   "None"            (* mapreduce_job_ubertask_enable: string *)
   0                 (* mapreduce_job_ubertask_maxmaps: nat *)
@@ -50,31 +70,31 @@ Definition mapred_config1 := mk_mapred_config total_cpu total_mem
   0                 (* mapreduce_jobtracker_handler_count: nat *)
   0                 (* mapreduce_jobtracker_maxtasks_perjob: nat *)
   0                 (* mapreduce_jobtracker_taskcache_levels: nat *)
-  0                 (* mapreduce_map_cpu_vcores: nat *)
-  java_opts1        (* mapreduce_map_java_opts: JavaOpts *)
+  my_mapreduce_map_cpu_vcores         (* mapreduce_map_cpu_vcores: nat *)
+  my_mapreduce_map_java_opts        (* mapreduce_map_java_opts: JavaOpts *)
   0                 (* mapreduce_map_maxattempts: nat *)
-  0                 (* mapreduce_map_memory_mb: nat *)
+  my_mapreduce_map_memory_mb       (* mapreduce_map_memory_mb: nat *)
   false             (* mapreduce_map_output_compress: bool *)
   I                 (* mapreduce_map_output_compress_codec: if (mapreduce_map_output_compress) then string else True *)
   0                 (* mapreduce_map_skip_maxrecords: nat *)
   true              (* mapreduce_map_skip_proc_count_autoincr: bool *)
-  float1            (* mapreduce_map_sort_spill_percent: Float *)
+  (mk_float 0 5)            (* mapreduce_map_sort_spill_percent: Float *)
   false             (* mapreduce_map_speculative: bool *)
   true              (* mapreduce_output_fileoutputformat_compress: bool *)
   "compress-code"   (* mapreduce_output_fileoutputformat_compress_codec: if (mapreduce_output_fileoutputformat_compress) then string else True *)
   "compress-type"   (* mapreduce_output_fileoutputformat_compress_type: if (mapreduce_output_fileoutputformat_compress) then string else True *)
   0                 (* mapreduce_reduce_cpu_vcores: nat *)
-  float1            (* mapreduce_reduce_input_buffer_percent: Float *)
-  java_opts1        (* mapreduce_reduce_java_opts: JavaOpts *)
-  float2            (* mapreduce_reduce_markreset_buffer_percent: Float *)
+  (mk_float 0 5)            (* mapreduce_reduce_input_buffer_percent: Float *)
+  my_mapreduce_reduce_java_opts        (* mapreduce_reduce_java_opts: JavaOpts *)
+  (mk_float 1 2)            (* mapreduce_reduce_markreset_buffer_percent: Float *)
   0                 (* mapreduce_reduce_maxattempts: nat *)
   0                 (* mapreduce_reduce_memory_mb: nat *)
   0                 (* mapreduce_reduce_merge_inmem_threshold: nat *)
   0                 (* mapreduce_reduce_shuffle_fetch_retry_interval__ms: nat *)
   0                 (* mapreduce_reduce_shuffle_fetch_retry_timeout__ms: nat *)
-  float1            (* mapreduce_reduce_shuffle_input_buffer_percent: Float *)
-  float1            (* mapreduce_reduce_shuffle_memory_limit_percent: Float *)
-  float2            (* mapreduce_reduce_shuffle_merge_percent: Float *)
+  (mk_float 0 5)            (* mapreduce_reduce_shuffle_input_buffer_percent: Float *)
+  (mk_float 0 5)          (* mapreduce_reduce_shuffle_memory_limit_percent: Float *)
+  (mk_float 1 2)            (* mapreduce_reduce_shuffle_merge_percent: Float *)
   0                 (* mapreduce_reduce_shuffle_parallelcopies: nat *)
   0                 (* mapreduce_reduce_shuffle_retry__delay_max_ms: nat *)
   0                 (* mapreduce_shuffle_max_connections: nat *)
@@ -84,7 +104,7 @@ Definition mapred_config1 := mk_mapred_config total_cpu total_mem
   0                 (* mapreduce_task_io_sort_factor: nat *)
   0                 (* mapreduce_task_io_sort_mb: nat *)
   0                 (* mapreduce_task_merge_progress_records: nat *)
-  range1            (* mapreduce_task_profile_maps: Range *)
+  (mk_range 0 2)            (* mapreduce_task_profile_maps: Range *)
   "task-profile"    (* mapreduce_task_profile_reduces: string *)
   0                 (* mapreduce_tasktracker_http_threads: nat *)
   0                 (* mapreduce_tasktracker_indexcache_mb: nat *)
@@ -92,20 +112,10 @@ Definition mapred_config1 := mk_mapred_config total_cpu total_mem
   0                 (* mapreduce_tasktracker_reduce_tasks_maximum: nat *)
   0                 (* mapreduce_tasktracker_taskmemorymanager_monitoringinterval: nat *)
 
-  (*
-  (*some restrictions from environment conditions
-  *first restriction: map CPU cores should less than total CPU cores.
-  *)
-  ;map_cpu_core_le_total_cores: mapreduce_map_cpu_vcores < total_cpu
-  ;map_mem_le_total_mem: mapreduce_map_memory_mb < total_phy_mem
-
-  (*
-  We can also define some constraints among parameters (internal constraints)*
-  *The first constraint is that the java heap space should be less than the memory for map tasks
-  *)
-  ;map_java_opts_le_map_mem: heap_size mapreduce_map_java_opts < mapreduce_map_memory_mb
-  *)
-.
+  (* integrity constraints *)
+  mapreduce_map_cpu_vcores_le_total_cpu
+  my_mapreduce_map_memory_mb_le_total_mem
+  my_mapreduce_map_java_opts_lt_my_mapreduce_map_memory_mb.
 
 (*
   Question: How can we provide proofs for MapRedConfig as needed,
@@ -128,10 +138,12 @@ Definition core_config1 := mk_hadoop_core_config
   0                 (* io_seqfile_sorter_recordlimit: nat*)
   0.                (* ipc_maximum_data_length: nat *)
 
+Definition my_yarn_app_mapreduce_am_command__opts := mk_java_opts 20 M.
+
 
 (*define a configuation for CORE sub-component*)
 Definition yarn_config1 := mk_yarn_config
-  java_opts1        (* yarn_app_mapreduce_am_command__opts: JavaOpts *)
+  my_yarn_app_mapreduce_am_command__opts        (* yarn_app_mapreduce_am_command__opts: JavaOpts *)
   0                 (* yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size: nat *)
   0                 (* yarn_app_mapreduce_am_job_task_listener_thread__count: nat *)
   0                 (* yarn_app_mapreduce_am_resource_cpu__vcores: nat *)
