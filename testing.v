@@ -7,28 +7,28 @@ Require Import hadoop_config.
 Environment parameter values.
 *)
 Definition total_cpu := 8.
-Definition total_mem := 4690.
+Definition total_mem := 4096.
 
 (*
 Configuration parameter values.
 *)
 Definition my_mapreduce_map_cpu_vcores := 4.
 Definition my_mapreduce_map_memory_mb := 1024.
-Definition my_mapred_child_java_opts := mk_java_opts 20 M. 
+Definition my_mapred_child_java_opts := mk_java_opts 200 M. 
 Definition my_mapreduce_map_java_opts := mk_java_opts 1024 M. 
 Definition my_mapreduce_reduce_java_opts := mk_java_opts 2560 M.
 Definition my_mapred_map_output_compression_type := "BLOCK".
 Definition my_mapreduce_ifile_readahead := true.
-Definition my_mapreduce_ifile_readahead_bytes := 4190.
-Definition my_mapreduce_input_fileinputformat_split_maxsize := 268.
+Definition my_mapreduce_ifile_readahead_bytes := 4194.
+Definition my_mapreduce_input_fileinputformat_split_maxsize := 2684.
 Definition my_mapreduce_input_fileinputformat_split_minsize := 0.
 Definition my_mapreduce_input_lineinputformat_linespermap := 1.
-Definition my_mapreduce_job_counters_max := 12.
+Definition my_mapreduce_job_counters_max := 120.
 Definition my_mapreduce_job_jvm_numtasks := 1.
 Definition my_mapreduce_job_maps := 2.
 Definition my_mapreduce_job_max_split_locations := 10.
 Definition my_mapreduce_job_reduce_slowstart_completedmaps := mk_float 0 5.
-Definition my_mapreduce_job_reducer_unconditional__preempt_delay_sec := 30.
+Definition my_mapreduce_job_reducer_unconditional__preempt_delay_sec := 300.
 Definition my_mapreduce_job_reduces := 1.
 Definition my_mapreduce_job_running_map_limit := 0.
 Definition my_mapreduce_job_running_reduce_limit := 0.
@@ -37,11 +37,11 @@ Definition my_mapreduce_job_speculative_retry__after__no__speculate := 100.
 Definition my_mapreduce_job_speculative_retry__after__speculate := 1500.
 Definition my_mapreduce_job_speculative_speculative__cap__running__tasks := mk_float 0 1.
 Definition my_mapreduce_job_speculative_speculative__cap__total__tasks := mk_float 0 01.
-Definition my_mapreduce_job_split_metainfo_maxsize := 100.
+Definition my_mapreduce_job_split_metainfo_maxsize := 1000.
 Definition my_mapreduce_job_ubertask_enable := false.
 Definition my_mapreduce_job_ubertask_maxmaps := 9.
 Definition my_mapreduce_job_ubertask_maxreduces := 1.
-Definition my_mapreduce_jobtracker_expire_trackers_interval := 600.
+Definition my_mapreduce_jobtracker_expire_trackers_interval := 6000.
 Definition my_mapreduce_jobtracker_handler_count := 10.
 Definition my_mapreduce_jobtracker_maxtasks_perjob := 100.
 Definition my_mapreduce_jobtracker_taskcache_levels := 2.
@@ -59,20 +59,20 @@ Definition my_mapreduce_reduce_cpu_vcores := 1.
 Definition my_mapreduce_reduce_input_buffer_percent := mk_float 0 7.
 Definition my_mapreduce_reduce_markreset_buffer_percent := mk_float 0 0.
 Definition my_mapreduce_reduce_maxattempts := 4.
-Definition my_mapreduce_reduce_memory_mb := 102.
-Definition my_mapreduce_reduce_merge_inmem_threshold := 100.
+Definition my_mapreduce_reduce_memory_mb := 1024.
+Definition my_mapreduce_reduce_merge_inmem_threshold := 1000.
 Definition my_mapreduce_reduce_shuffle_input_buffer_percent := mk_float 0 7.
 Definition my_mapreduce_reduce_shuffle_memory_limit_percent := mk_float 0 25.
 Definition my_mapreduce_reduce_shuffle_merge_percent := mk_float 0 66.
 Definition my_mapreduce_reduce_shuffle_parallelcopies := 5.
-Definition my_mapreduce_reduce_shuffle_retry__delay_max_ms := 600.
+Definition my_mapreduce_reduce_shuffle_retry__delay_max_ms := 6000.
 Definition my_mapreduce_shuffle_max_connections := 0.
 Definition my_mapreduce_shuffle_max_threads := 0.
-Definition my_mapreduce_shuffle_transfer_buffer_size := 131.
-Definition my_mapreduce_task_combine_progress_records := 100.
+Definition my_mapreduce_shuffle_transfer_buffer_size := 1310.
+Definition my_mapreduce_task_combine_progress_records := 1000.
 Definition my_mapreduce_task_io_sort_factor := 10.
 Definition my_mapreduce_task_io_sort_mb := 100.
-Definition my_mapreduce_task_merge_progress_records := 100.
+Definition my_mapreduce_task_merge_progress_records := 1000.
 Definition my_mapreduce_task_profile_maps := mk_range 0 2.
 Definition my_mapreduce_task_profile_reduces := mk_range 0 2.
 Definition my_mapreduce_tasktracker_http_threads := 40.
@@ -187,12 +187,12 @@ Definition my_hdfs_config := mk_hdfs_config
 
 (*define a configuation for CORE sub-component*)
 Definition my_io_compression_codecs := "org.apache.hadoop.io.compress.DefaultCodec".
-Definition my_io_file_buffer_size := 409.
+Definition my_io_file_buffer_size := 4096.
 Definition my_io_map_index_interval := 128.
 Definition my_io_map_index_skip := 0.
 Definition my_io_seqfile_compress_blocksize := 1000.
 Definition my_io_seqfile_sorter_recordlimit := 1000.
-Definition my_ipc_maximum_data_length := 671.
+Definition my_ipc_maximum_data_length := 6710.
 
 Definition my_core_config := mk_hadoop_core_config
   my_io_compression_codecs   			  (* io_compression_codecs: string *)
