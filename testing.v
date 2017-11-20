@@ -124,7 +124,7 @@ Definition my_mapred_config := mk_mapred_config total_cpu total_mem
   my_mapreduce_job_speculative_speculative__cap__running__tasks    (* mapreduce_job_speculative_speculative__cap__running__tasks: Float *)
   my_mapreduce_job_speculative_speculative__cap__total__tasks      (* mapreduce_job_speculative_speculative__cap__total__tasks: Float *)
   my_mapreduce_job_split_metainfo_maxsize                 (* mapreduce_job_split_metainfo_maxsize: nat *)
-  my_mapreduce_job_ubertask_enable            (* mapreduce_job_ubertask_enable: string *)
+  my_mapreduce_job_ubertask_enable            (* mapreduce_job_ubertask_enable: string WRONG-KS *)
   my_mapreduce_job_ubertask_maxmaps           (* mapreduce_job_ubertask_maxmaps: nat *)
   my_mapreduce_job_ubertask_maxreduces        (* mapreduce_job_ubertask_maxreduces: nat *)
   my_mapreduce_jobtracker_expire_trackers_interval  (* mapreduce_jobtracker_expire_trackers_interval: nat *)
