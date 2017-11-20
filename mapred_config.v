@@ -1,80 +1,85 @@
-Require Import String.
+Require Export String.
+Require Export Coq.ZArith.BinInt.
+
 Open Scope string_scope.
+Open Scope Z_scope.
 Require Import util.
 
 (*Configuration for MapRed sub-component*)
 (*
 Record MapRedConfig (cdt: ENVCondition) := mk_mapred_config {
 *)
-Record MapRedConfig (total_cpu: nat) (total_phy_mem: nat) := mk_mapred_config {
+Record MapRedConfig (total_cpu: Z) (total_phy_mem: Z) := mk_mapred_config {
    mapred_child_java_opts: JavaOpts
   ;mapred_map_output_compression_type: string
   ;mapreduce_ifile_readahead: bool
-  ;mapreduce_ifile_readahead_bytes: if (mapreduce_ifile_readahead) then nat else True
-  ;mapreduce_input_fileinputformat_split_maxsize: nat
-  ;mapreduce_input_fileinputformat_split_minsize: nat
-  ;mapreduce_input_lineinputformat_linespermap: nat
-  ;mapreduce_job_counters_max: nat
-  ;mapreduce_job_jvm_numtasks: nat
-  ;mapreduce_job_maps: nat
-  ;mapreduce_job_max_split_locations: nat
+  ;mapreduce_ifile_readahead_bytes: if (mapreduce_ifile_readahead) 
+                                                            then Z 
+                                                            else True
+  ;mapreduce_input_fileinputformat_split_maxsize: Z
+  ;mapreduce_input_fileinputformat_split_minsize: Z
+  ;mapreduce_input_lineinputformat_linespermap: Z
+  ;mapreduce_job_counters_max: Z
+  ;mapreduce_job_jvm_numtasks: Z
+  ;mapreduce_job_maps: Z
+  ;mapreduce_job_max_split_locations: Z
   ;mapreduce_job_reduce_slowstart_completedmaps: Float
-  ;mapreduce_job_reducer_unconditional__preempt_delay_sec: nat
-  ;mapreduce_job_reduces: nat
-  ;mapreduce_job_running_map_limit: nat
-  ;mapreduce_job_running_reduce_limit: nat
-  ;mapreduce_job_speculative_minimum__allowed__tasks: nat
-  ;mapreduce_job_speculative_retry__after__no__speculate: nat
-  ;mapreduce_job_speculative_retry__after__speculate: nat
+  ;mapreduce_job_reducer_unconditional__preempt_delay_sec: Z
+  ;mapreduce_job_reduces: Z
+  ;mapreduce_job_running_map_limit: Z
+  ;mapreduce_job_running_reduce_limit: Z
+  ;mapreduce_job_speculative_minimum__allowed__tasks: Z
+  ;mapreduce_job_speculative_retry__after__no__speculate: Z
+  ;mapreduce_job_speculative_retry__after__speculate: Z
   ;mapreduce_job_speculative_speculative__cap__running__tasks: Float
   ;mapreduce_job_speculative_speculative__cap__total__tasks: Float
-  ;mapreduce_job_split_metainfo_maxsize: nat
+  ;mapreduce_job_split_metainfo_maxsize: Z
   ;mapreduce_job_ubertask_enable: bool
-  ;mapreduce_job_ubertask_maxmaps: nat
-  ;mapreduce_job_ubertask_maxreduces: nat
-  ;mapreduce_jobtracker_expire_trackers_interval: nat
-  ;mapreduce_jobtracker_handler_count: nat
-  ;mapreduce_jobtracker_maxtasks_perjob: nat
-  ;mapreduce_jobtracker_taskcache_levels: nat
-  ;mapreduce_map_cpu_vcores: nat
+  ;mapreduce_job_ubertask_maxmaps: Z
+  ;mapreduce_job_ubertask_maxreduces: Z
+  ;mapreduce_jobtracker_expire_trackers_interval: Z
+  ;mapreduce_jobtracker_handler_count: Z
+  ;mapreduce_jobtracker_maxtasks_perjob: Z
+  ;mapreduce_jobtracker_taskcache_levels: Z
+  ;mapreduce_map_cpu_vcores: Z
   ;mapreduce_map_java_opts: JavaOpts
-  ;mapreduce_map_maxattempts: nat
-  ;mapreduce_map_memory_mb: nat
+  ;mapreduce_map_maxattempts: Z
+  ;mapreduce_map_memory_mb: Z
   ;mapreduce_map_output_compress: bool
   ;mapreduce_map_output_compress_codec: if (mapreduce_map_output_compress) then string else True
-  ;mapreduce_map_skip_maxrecords: nat
+  ;mapreduce_map_skip_maxrecords: Z
   ;mapreduce_map_skip_proc_count_autoincr: bool
   ;mapreduce_map_sort_spill_percent: Float
   ;mapreduce_map_speculative: bool
   ;mapreduce_output_fileoutputformat_compress: bool
   ;mapreduce_output_fileoutputformat_compress_codec: if (mapreduce_output_fileoutputformat_compress) then string else True
   ;mapreduce_output_fileoutputformat_compress_type: if (mapreduce_output_fileoutputformat_compress) then string else True
-  ;mapreduce_reduce_cpu_vcores: nat
+  ;mapreduce_reduce_cpu_vcores: Z
   ;mapreduce_reduce_input_buffer_percent: Float
   ;mapreduce_reduce_java_opts: JavaOpts
   ;mapreduce_reduce_markreset_buffer_percent: Float
-  ;mapreduce_reduce_maxattempts: nat
-  ;mapreduce_reduce_memory_mb: nat
-  ;mapreduce_reduce_merge_inmem_threshold: nat
+  ;mapreduce_reduce_maxattempts: Z
+  ;mapreduce_reduce_memory_mb: Z
+  ;mapreduce_reduce_merge_inmem_threshold: Z
   ;mapreduce_reduce_shuffle_input_buffer_percent: Float
   ;mapreduce_reduce_shuffle_memory_limit_percent: Float
   ;mapreduce_reduce_shuffle_merge_percent: Float
-  ;mapreduce_reduce_shuffle_parallelcopies: nat
-  ;mapreduce_reduce_shuffle_retry__delay_max_ms: nat
-  ;mapreduce_shuffle_max_connections: nat
-  ;mapreduce_shuffle_max_threads: nat
-  ;mapreduce_shuffle_transfer_buffer_size: nat
-  ;mapreduce_task_combine_progress_records: nat
-  ;mapreduce_task_io_sort_factor: nat
-  ;mapreduce_task_io_sort_mb: nat
-  ;mapreduce_task_merge_progress_records: nat
+  ;mapreduce_reduce_shuffle_parallelcopies: Z
+  ;mapreduce_reduce_shuffle_retry__delay_max_ms: Z
+  ;mapreduce_shuffle_max_connections: Z
+  ;mapreduce_shuffle_max_threads: Z
+  ;mapreduce_shuffle_transfer_buffer_size: Z
+  ;mapreduce_task_combine_progress_records: Z
+  ;mapreduce_task_io_sort_factor: Z
+  ;mapreduce_task_io_sort_mb: Z
+  ;mapreduce_task_merge_progress_records: Z
   ;mapreduce_task_profile_maps: Range
   ;mapreduce_task_profile_reduces: Range
-  ;mapreduce_tasktracker_http_threads: nat
-  ;mapreduce_tasktracker_indexcache_mb: nat 
-  ;mapreduce_tasktracker_map_tasks_maximum: nat
-  ;mapreduce_tasktracker_reduce_tasks_maximum: nat
-  ;mapreduce_tasktracker_taskmemorymanager_monitoringinterval: nat
+  ;mapreduce_tasktracker_http_threads: Z
+  ;mapreduce_tasktracker_indexcache_mb: Z 
+  ;mapreduce_tasktracker_map_tasks_maximum: Z
+  ;mapreduce_tasktracker_reduce_tasks_maximum: Z
+  ;mapreduce_tasktracker_taskmemorymanager_monitoringinterval: Z
 
   (*some restrictions from environment conditions
   *first restriction: map CPU cores should less than total CPU cores.

@@ -11,7 +11,7 @@ Require Export resource_mgr.
 Here we define a Hadoop configuration. It's a compound system built based on sub-components.
 It also contains a few dependent types and constrains.
 *)
-Record HadoopConfig (total_cpu: nat) (total_phy_mem: nat)
+Record HadoopConfig (total_cpu: Z) (total_phy_mem: Z)
   := mk_hadoop_config {
      resource_mgr: ResourceManager
     ;rm_config: (rm_config_type resource_mgr)

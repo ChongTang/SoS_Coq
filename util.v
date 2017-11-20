@@ -1,4 +1,5 @@
 Require Import String.
+Require Export Coq.ZArith.BinInt.
 Open Scope string_scope.
 
 (*I define my own float type in Coq*)
@@ -34,6 +35,6 @@ Record JavaOpts := mk_java_opts {
 *)
 
 Record JavaOpts := mk_java_opts {
-   heap_size: nat
+   heap_size: Z
   ;heap_size_unit: JavaOptsUnit
 }.
