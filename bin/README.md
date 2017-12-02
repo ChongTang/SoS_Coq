@@ -1,8 +1,8 @@
 # How to run scripts:
 
-1. gen_fileds.py creates Hadoop fields in required Coq format. The output of this scripts includes four Coq .v files: core_config.v, hdfs_config.v, mapred_config.v, and yarn_config.v.
+__Warning__: These scripts will overwrite the old .v files.
 
- __Warning__: This script will overwrite the old .v files.
+1. gen_fileds.py creates Hadoop fields in required Coq format. The output of this scripts includes four Coq .v files: core_config.v, hdfs_config.v, mapred_config.v, and yarn_config.v.
 
  ```
  python gen_fileds.py Hadoop_params_real_world_type.xlsx
