@@ -13,3 +13,10 @@ __Warning__: These scripts will overwrite the old .v files.
  ```
  python gen_fileds.py Hadoop_params_real_world_type.xlsx
  ```
+
+3. _gen_all_config_coq.py_ randomly generate N configurations in Coq's format and write them into multiple disk files. The N is an argument.
+
+   ```
+   python gen_all_config_coq.py Hadoop_params_real_world_type.xlsx 100
+   ```
+   This command will generate 100 configurations: conf1.v, conf2.v, ..., conf100.v
