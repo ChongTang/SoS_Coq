@@ -55,8 +55,8 @@ Unshelve.
 unfold io_file_buffer_size_desc.rType. omega.
 unfold io_fake_bool_desc.rType. exact I.
 Qed.
-*)
 Print a_core_config.
+*)
 
 (*
   io_file_buffer_size: io_file_buffer_size.ftype

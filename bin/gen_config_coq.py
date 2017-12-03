@@ -141,7 +141,7 @@ Definition a_hadoop_config := mk_hadoop_config myEnv
 
 
 xlsx_file = 'Hadoop_params_real_world_type.xlsx'
-
+xlsx_file = sys.argv[1]
 # read parameters and all values
 df = pd.read_excel(xlsx_file, header=0)
 for index, row in df.iterrows():
@@ -164,7 +164,7 @@ for index, row in df.iterrows():
 
 
 # how many configurations to generate randomly
-max_num = int(sys.argv[1])
+max_num = int(sys.argv[2])
 conf_index = 1
 while(conf_index <= max_num):
     a_conf = gen_a_conf_randomly(param_valus)
