@@ -62,22 +62,22 @@ Open Scope R_scope.
 '''
     core_module = '''Definition a_core_config: CoreConfig.
 Proof.
-refine (
+unshelve refine (
     mk_core_config
 '''
     hdfs_module = '''Definition a_hdfs_config: HDFSConfig.
 Proof.
-refine (
+unshelve refine (
     mk_hdfs_config
 '''
     mapred_module = '''Definition a_mapred_config: MapRedConfig.
 Proof.
-refine (
+unshelve refine (
     mk_mapred_config
 '''
     yarn_module = '''Definition a_yarn_config: YarnConfig.
 Proof.
-refine (
+unshelve refine (
     mk_yarn_config
 '''
     #############################################
@@ -108,7 +108,7 @@ refine (
             yarn_module += '    ' + p + '\n'
 
     #############################################
-    core_module += '''); try (exact I).
+    core_module += '''); try (exact I); try compute; auto.
 Qed.
 
 '''
