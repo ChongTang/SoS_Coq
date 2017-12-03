@@ -19,6 +19,7 @@ unshelve refine (
     (yarn_nodemanager_container__manager_thread__count.mk            false   20%positive _ )
     (yarn_nodemanager_localizer_client_thread__count.mk            false   5%positive _ )
     (yarn_nodemanager_localizer_fetch_thread__count.mk            false   4%positive _ )
+    (yarn_nodemanager_recovery_compaction__interval__secs.mk            false   3600%positive _ )
     (yarn_nodemanager_resource_cpu__vcores.mk            false   8%positive _ )
     (yarn_nodemanager_resource_memory__mb.mk            false   8192%positive _ )
     (yarn_nodemanager_resource_percentage__physical__cpu__limit.mk            false   100%positive _ )
@@ -42,7 +43,6 @@ unshelve refine (
     (yarn_sharedcache_admin_thread__count.mk            false   1%positive _ )
     (yarn_sharedcache_client__server_thread__count.mk            false   50%positive _ )
     (yarn_sharedcache_enabled.mk            false   false _ )
-    (yarn_nodemanager_recovery_compaction__interval__secs.mk            false   3600%positive _ )
     _
     _
     _

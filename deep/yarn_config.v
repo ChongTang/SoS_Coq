@@ -10,6 +10,7 @@ Record YarnConfig := mk_yarn_config {
  ;yarn_nodemanager_container__manager_thread__count: yarn_nodemanager_container__manager_thread__count.ftype
  ;yarn_nodemanager_localizer_client_thread__count: yarn_nodemanager_localizer_client_thread__count.ftype
  ;yarn_nodemanager_localizer_fetch_thread__count: yarn_nodemanager_localizer_fetch_thread__count.ftype
+ ;yarn_nodemanager_recovery_compaction__interval__secs: yarn_nodemanager_recovery_compaction__interval__secs.ftype
  ;yarn_nodemanager_resource_cpu__vcores: yarn_nodemanager_resource_cpu__vcores.ftype
  ;yarn_nodemanager_resource_memory__mb: yarn_nodemanager_resource_memory__mb.ftype
  ;yarn_nodemanager_resource_percentage__physical__cpu__limit: yarn_nodemanager_resource_percentage__physical__cpu__limit.ftype
@@ -33,7 +34,6 @@ Record YarnConfig := mk_yarn_config {
  ;yarn_sharedcache_admin_thread__count: yarn_sharedcache_admin_thread__count.ftype
  ;yarn_sharedcache_client__server_thread__count: yarn_sharedcache_client__server_thread__count.ftype
  ;yarn_sharedcache_enabled: yarn_sharedcache_enabled.ftype
- ;yarn_nodemanager_recovery_compaction__interval__secs: yarn_nodemanager_recovery_compaction__interval__secs.ftype
 
  (*constraints here*)
  (*

@@ -8,8 +8,6 @@ Open Scope positive_scope.
 Open Scope bool_scope.
 Open Scope Z_scope.
 
-
-
 Record MapRedConfig := mk_mapred_config {
   mapred_child_java_opts: mapred_child_java_opts.ftype
  ;mapred_map_output_compression_type: mapred_map_output_compression_type.ftype
@@ -22,6 +20,7 @@ Record MapRedConfig := mk_mapred_config {
  ;mapreduce_job_jvm_numtasks: mapreduce_job_jvm_numtasks.ftype
  ;mapreduce_job_max_split_locations: mapreduce_job_max_split_locations.ftype
  ;mapreduce_job_reduce_slowstart_completedmaps: mapreduce_job_reduce_slowstart_completedmaps.ftype
+ ;mapreduce_job_reducer_unconditional__preempt_delay_sec: mapreduce_job_reducer_unconditional__preempt_delay_sec.ftype
  ;mapreduce_job_running_map_limit: mapreduce_job_running_map_limit.ftype
  ;mapreduce_job_running_reduce_limit: mapreduce_job_running_reduce_limit.ftype
  ;mapreduce_job_speculative_minimum__allowed__tasks: mapreduce_job_speculative_minimum__allowed__tasks.ftype
@@ -76,7 +75,6 @@ Record MapRedConfig := mk_mapred_config {
  ;mapreduce_tasktracker_map_tasks_maximum: mapreduce_tasktracker_map_tasks_maximum.ftype
  ;mapreduce_tasktracker_reduce_tasks_maximum: mapreduce_tasktracker_reduce_tasks_maximum.ftype
  ;mapreduce_tasktracker_taskmemorymanager_monitoringinterval: mapreduce_tasktracker_taskmemorymanager_monitoringinterval.ftype
- ;mapreduce_job_reducer_unconditional__preempt_delay_sec: mapreduce_job_reducer_unconditional__preempt_delay_sec.ftype
  
  (*some restrictions from environment conditions
   *first restriction: map CPU cores should less than total CPU cores.

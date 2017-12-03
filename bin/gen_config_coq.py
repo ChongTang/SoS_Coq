@@ -83,6 +83,7 @@ unshelve refine (
     #############################################
     modules = list(set(param_module.values()))
     params = conf.keys()
+    module_params = {'core':[], 'hdfs': [], 'mapred': [], 'yarn': []}
     for p in params:
         m = param_module[p].lower().strip()
         v = conf[p]
@@ -96,16 +97,31 @@ unshelve refine (
             v = v + '%positive'
         elif param_ntype[p] == 'Z':
             v = v + '%Z'
-        p = p.replace('.', '_').replace('-', '__')
-        p = '  (' + p + '.mk false '+ v + ' _ )'
+        p_in_coq = p.replace('.', '_').replace('-', '__')
+
         if 'core' in m:
-            core_module += '    ' + p + '\n'
+            module_params['core'].append((p_in_coq, v))
         elif 'hdfs' in m:
-            hdfs_module += '    ' + p + '\n'
+            module_params['hdfs'].append((p_in_coq, v))
         elif 'mapred' in m:
-            mapred_module += '    ' + p + '\n'
+            module_params['mapred'].append((p_in_coq, v))
         elif 'yarn' in m:
-            yarn_module += '    ' + p + '\n'
+            module_params['yarn'].append((p_in_coq, v))
+
+    for module, pvs in module_params.iteritems():
+        sorted_pvs = sorted(pvs, key=lambda x: x[0])
+        module_str = ''
+        for p, v in sorted_pvs:
+            module_str += '    (' + p + '.mk false '+ v + ' _ )\n'
+
+        if module == 'core':
+            core_module += module_str
+        elif module == 'hdfs':
+            hdfs_module += module_str
+        elif module == 'mapred':
+            mapred_module += module_str
+        elif module == 'yarn':
+            yarn_module += module_str
 
     #############################################
     core_module += '''); try (exact I); try compute; auto.
@@ -124,7 +140,7 @@ Qed.
     yarn_module += '''      _
       _
       _
-); try (exact I); compute; try reflexivity.
+); try (exact I); compute; try reflexivity; auto.
 Qed.
 '''
 

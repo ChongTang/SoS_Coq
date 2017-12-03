@@ -31,13 +31,14 @@ Record Env := mk_env {
 }.
 
 Definition myEnv:Env := mk_env 
-  6%positive 
-  48%positive
-  16384%positive
-  32768%positive
-  4096%positive
-  3000%positive
-  500%positive
+  20%positive 
+  40%positive
+  32768%positive (*32GB physical memory*)
+  32768%positive (*32GB physical memory*)
+  4096%positive  (*page size*)
+  3000%positive  (*max file discriptor*)
+  500%positive  (*max number of threads*)
+  (*compression codecs*)
   ("org.apache.hadoop.io.compress.DefaultCodec"::"org.apache.hadoop.io.compress.GzipCodec"::"org.apache.hadoop.io.compress.BZip2Codec"::nil)
 .
 (*

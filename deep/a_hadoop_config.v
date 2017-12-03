@@ -50,6 +50,7 @@ unshelve refine (
     (mapreduce_job_jvm_numtasks.mk            false   1%Z _ )
     (mapreduce_job_max_split_locations.mk            false   10%positive _ )
     (mapreduce_job_reduce_slowstart_completedmaps.mk            false   (5/100%R) _ )
+    (mapreduce_job_reducer_unconditional__preempt_delay_sec.mk            false   300%positive _ )
     (mapreduce_job_running_map_limit.mk            false   0%Z _ )
     (mapreduce_job_running_reduce_limit.mk            false   0%Z _ )
     (mapreduce_job_speculative_minimum__allowed__tasks.mk            false   10%positive _ )
@@ -104,7 +105,6 @@ unshelve refine (
     (mapreduce_tasktracker_map_tasks_maximum.mk            false   2%positive _ )
     (mapreduce_tasktracker_reduce_tasks_maximum.mk            false   2%positive _ )
     (mapreduce_tasktracker_taskmemorymanager_monitoringinterval.mk     false   5000%positive _ )
-    (mapreduce_job_reducer_unconditional__preempt_delay_sec.mk            false   300%positive _ )
 
     _
 );try (exact I); simpl; try compute; try reflexivity; auto.
@@ -123,6 +123,7 @@ unshelve refine (
     (yarn_nodemanager_container__manager_thread__count.mk            false   20%positive _ )
     (yarn_nodemanager_localizer_client_thread__count.mk            false   5%positive _ )
     (yarn_nodemanager_localizer_fetch_thread__count.mk            false   4%positive _ )
+    (yarn_nodemanager_recovery_compaction__interval__secs.mk            false   3600%positive _ )
     (yarn_nodemanager_resource_cpu__vcores.mk            false   8%positive _ )
     (yarn_nodemanager_resource_memory__mb.mk            false   8192%positive _ )
     (yarn_nodemanager_resource_percentage__physical__cpu__limit.mk            false   100%positive _ )
@@ -146,7 +147,7 @@ unshelve refine (
     (yarn_sharedcache_admin_thread__count.mk            false   1%positive _ )
     (yarn_sharedcache_client__server_thread__count.mk            false   50%positive _ )
     (yarn_sharedcache_enabled.mk            false   false _ )
-    (yarn_nodemanager_recovery_compaction__interval__secs.mk            false   3600%positive _ )
+
     _
     _
     _
