@@ -3,11 +3,13 @@ Require Import Omega.
 Require Import env_desc.
 Require Import Reals.
 Open Scope R_scope.
+Open Scope Z_scope.
+Open Scope positive_scope.
 
 
 Definition a_yarn_config: YarnConfig.
 Proof.
-refine (
+unshelve refine (
   mk_yarn_config
     (yarn_app_mapreduce_am_command__opts.mk            false   "-Xmx1024m" _ )
     (yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size.mk            false   10%positive _ )
@@ -21,7 +23,7 @@ refine (
     (yarn_nodemanager_resource_memory__mb.mk            false   8192%positive _ )
     (yarn_nodemanager_resource_percentage__physical__cpu__limit.mk            false   100%positive _ )
     (yarn_nodemanager_vmem__check__enabled.mk            false  true _ )
-    (yarn_nodemanager_vmem__pmem__ratio.mk            false   (21/10%R) _ )
+    (yarn_nodemanager_vmem__pmem__ratio.mk            false   (21/10)%R _ )
     (yarn_nodemanager_windows__container_cpu__limit_enabled.mk           false   false _ )
     (yarn_nodemanager_windows__container_memory__limit_enabled.mk            false   false _ )
     (yarn_resourcemanager_admin_client_thread__count.mk            false   1%positive _ )
@@ -41,5 +43,9 @@ refine (
     (yarn_sharedcache_client__server_thread__count.mk            false   50%positive _ )
     (yarn_sharedcache_enabled.mk            false   false _ )
     (yarn_nodemanager_recovery_compaction__interval__secs.mk            false   3600%positive _ )
-); try (exact I).
+    _
+    _
+    _
+); try (exact I); compute; try reflexivity; auto.
 Qed.
+

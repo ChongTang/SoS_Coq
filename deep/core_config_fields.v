@@ -8,7 +8,7 @@ Open Scope positive_scope.
 Module io_file_buffer_size_desc <: FieldModuleType.
   Definition fName := "io.file.buffer.size".
   Definition mTipe := mTipe_pos.
-  Definition rType := fun value: positive => True.
+  Definition rType := fun value: positive => ((Zpos value) mod 4096%Z) = 0%Z.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".

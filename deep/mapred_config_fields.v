@@ -2,10 +2,13 @@ Require Export fieldType.
 Require Import env_desc.
 Require Import Coq.ZArith.Zdiv.
 Open Scope string_scope.
-Open Scope Z_scope.
 Open Scope positive_scope.
 Require Import Reals.
 Open Scope R_scope.
+Open Scope bool_scope.
+Open Scope Z_scope.
+Require Export List.
+Open Scope list_scope.
 
 Module mapred_child_java_opts_desc <: FieldModuleType.
   Definition fName := "mapred.child.java.opts".
@@ -22,7 +25,7 @@ Export mapred_child_java_opts.
 Module mapred_map_output_compression_type_desc <: FieldModuleType.
   Definition fName := "mapred.map.output.compression.type".
   Definition mTipe := mTipe_string.
-  Definition rType := fun value: string => True.
+  Definition rType := fun value: string => In value ("NONE"::"RECORD"::"BLOCK"::nil).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -106,7 +109,7 @@ Export mapreduce_job_counters_max.
 Module mapreduce_job_jvm_numtasks_desc <: FieldModuleType.
   Definition fName := "mapreduce.job.jvm.numtasks".
   Definition mTipe := mTipe_Z.
-  Definition rType := fun value: Z => True.
+  Definition rType := fun value: Z => (Z.eq value (-1%Z)) \/ (value > 0%Z).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -226,7 +229,7 @@ Export mapreduce_job_speculative_speculative__cap__total__tasks.
 Module mapreduce_job_split_metainfo_maxsize_desc <: FieldModuleType.
   Definition fName := "mapreduce.job.split.metainfo.maxsize".
   Definition mTipe := mTipe_Z.
-  Definition rType := fun value: Z => True.
+  Definition rType := fun value: Z => (Z.eq value (-1%Z)) \/ value > 0.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -298,7 +301,7 @@ Export mapreduce_jobtracker_handler_count.
 Module mapreduce_jobtracker_maxtasks_perjob_desc <: FieldModuleType.
   Definition fName := "mapreduce.jobtracker.maxtasks.perjob".
   Definition mTipe := mTipe_Z.
-  Definition rType := fun value: Z => True.
+  Definition rType := fun value: Z => (Z.eq value (-1%Z)) \/ value > 0.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -322,7 +325,7 @@ Export mapreduce_jobtracker_taskcache_levels.
 Module mapreduce_map_cpu_vcores_desc <: FieldModuleType.
   Definition fName := "mapreduce.map.cpu.vcores".
   Definition mTipe := mTipe_pos.
-  Definition rType := fun value: positive => True.
+  Definition rType := fun value: positive => (Pos.lt value (env_virt_CPU_cores myEnv)).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -358,7 +361,7 @@ Export mapreduce_map_maxattempts.
 Module mapreduce_map_memory_mb_desc <: FieldModuleType.
   Definition fName := "mapreduce.map.memory.mb".
   Definition mTipe := mTipe_pos.
-  Definition rType := fun value: positive => True.
+  Definition rType := fun value: positive => Pos.lt value (env_phys_mem_mb myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -382,7 +385,7 @@ Export mapreduce_map_output_compress.
 Module mapreduce_map_output_compress_codec_desc <: FieldModuleType.
   Definition fName := "mapreduce.map.output.compress.codec".
   Definition mTipe := mTipe_string.
-  Definition rType := fun value: string => True.
+  Definition rType := fun value: string => In value (env_comp_codecs myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -454,7 +457,7 @@ Export mapreduce_output_fileoutputformat_compress.
 Module mapreduce_output_fileoutputformat_compress_codec_desc <: FieldModuleType.
   Definition fName := "mapreduce.output.fileoutputformat.compress.codec".
   Definition mTipe := mTipe_string.
-  Definition rType := fun value: string => True.
+  Definition rType := fun value: string => In value (env_comp_codecs myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -466,7 +469,7 @@ Export mapreduce_output_fileoutputformat_compress_codec.
 Module mapreduce_output_fileoutputformat_compress_type_desc <: FieldModuleType.
   Definition fName := "mapreduce.output.fileoutputformat.compress.type".
   Definition mTipe := mTipe_string.
-  Definition rType := fun value: string => True.
+  Definition rType := fun value: string => In value ("NONE"::"RECORD"::"BLOCK"::nil).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".

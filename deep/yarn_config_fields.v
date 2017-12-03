@@ -6,6 +6,8 @@ Open Scope Z_scope.
 Open Scope positive_scope.
 Require Import Reals.
 Open Scope R_scope.
+Require Export List.
+Open Scope list_scope.
 
 Module yarn_app_mapreduce_am_command__opts_desc <: FieldModuleType.
   Definition fName := "yarn.app.mapreduce.am.command-opts".
@@ -58,7 +60,7 @@ Export yarn_app_mapreduce_am_resource_cpu__vcores.
 Module yarn_app_mapreduce_am_resource_mb_desc <: FieldModuleType.
   Definition fName := "yarn.app.mapreduce.am.resource.mb".
   Definition mTipe := mTipe_pos.
-  Definition rType := fun value: positive => True.
+  Definition rType := fun value: positive => Pos.lt value (env_phys_mem_mb myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -106,7 +108,7 @@ Export yarn_nodemanager_localizer_fetch_thread__count.
 Module yarn_nodemanager_resource_cpu__vcores_desc <: FieldModuleType.
   Definition fName := "yarn.nodemanager.resource.cpu-vcores".
   Definition mTipe := mTipe_pos.
-  Definition rType := fun value: positive => True.
+  Definition rType := fun value: positive => Pos.lt value (env_virt_CPU_cores myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -118,7 +120,7 @@ Export yarn_nodemanager_resource_cpu__vcores.
 Module yarn_nodemanager_resource_memory__mb_desc <: FieldModuleType.
   Definition fName := "yarn.nodemanager.resource.memory-mb".
   Definition mTipe := mTipe_pos.
-  Definition rType := fun value: positive => True.
+  Definition rType := fun value: positive => Pos.lt value (env_phys_mem_mb myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -274,7 +276,7 @@ Export yarn_resourcemanager_scheduler_client_thread__count.
 Module yarn_resourcemanager_store_class_desc <: FieldModuleType.
   Definition fName := "yarn.resourcemanager.store.class".
   Definition mTipe := mTipe_string.
-  Definition rType := fun value: string => True.
+  Definition rType := fun value: string => In value ("org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore"::"org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore"::nil).
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".

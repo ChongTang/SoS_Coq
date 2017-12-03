@@ -77,6 +77,5 @@ unshelve refine (
     (mapreduce_job_reducer_unconditional__preempt_delay_sec.mk            false   300%positive _ )
 
     _
-    _
-); try (exact I); simpl; try compute; try reflexivity.
+);try (exact I); simpl; try compute; try reflexivity; auto.
 Qed.

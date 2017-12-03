@@ -1,5 +1,14 @@
 Require Export mapred_config_fields.
 Require Export env_desc.
+Require Export List.
+Open Scope list_scope.
+Open Scope string_scope.
+Require Export Coq.ZArith.BinInt.
+Open Scope positive_scope.
+Open Scope bool_scope.
+Open Scope Z_scope.
+
+
 
 Record MapRedConfig := mk_mapred_config {
   mapred_child_java_opts: mapred_child_java_opts.ftype
@@ -69,15 +78,24 @@ Record MapRedConfig := mk_mapred_config {
  ;mapreduce_tasktracker_taskmemorymanager_monitoringinterval: mapreduce_tasktracker_taskmemorymanager_monitoringinterval.ftype
  ;mapreduce_job_reducer_unconditional__preempt_delay_sec: mapreduce_job_reducer_unconditional__preempt_delay_sec.ftype
  
-(*some restrictions from environment conditions
+ (*some restrictions from environment conditions
   *first restriction: map CPU cores should less than total CPU cores.
-  *)
- ;map_cpu_core_le_total_cores: value mapreduce_map_cpu_vcores < env_virt_CPU_cores myEnv
- ;map_mem_le_total_mem: value mapreduce_map_memory_mb < env_phys_mem_mb myEnv
+  
+ ;map_cpu_core_le_total_cores: (mapreduce_map_cpu_vcores.value mapreduce_map_cpu_vcores) < (env_virt_CPU_cores myEnv)
+ ;map_mem_le_total_mem: (mapreduce_map_memory_mb.value mapreduce_map_memory_mb) < (env_phys_mem_mb myEnv)*)
  (*some restrictions from environment conditions
   *first restriction: map CPU cores should less than total CPU cores.
   *)
 (* Currently, JavaOpts is defined as a string. So we cannot check this constraint.
  ;map_java_opts_le_map_mem: value mapreduce_map_java_opts <= value mapreduce_map_memory_mb
-*)
+ ;reduce_java_opts_le_reduce_mem: value mapreduce_reduce_java_opts <= value mapreduce_reduce_memory_mb
+
+ ;map_comp_codec_check: In (mapreduce_map_output_compress_codec.value mapreduce_map_output_compress_codec) (env_comp_codecs myEnv)
+ ;output_comp_codec_check: In (mapreduce_output_fileoutputformat_compress_codec.value mapreduce_output_fileoutputformat_compress_codec) (env_comp_codecs myEnv)*)
+
+ (*need N to Z*)
+ ;maxsplit_lt_minsplit: Z.gt (Zpos (mapreduce_input_fileinputformat_split_maxsize.value mapreduce_input_fileinputformat_split_maxsize)) (Z.of_N (mapreduce_input_fileinputformat_split_minsize.value mapreduce_input_fileinputformat_split_minsize))
 }.
+
+
+

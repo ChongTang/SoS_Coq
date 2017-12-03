@@ -38,7 +38,7 @@ all at once using Coq's [;] tactical.
 *)
 Definition a_core_config: CoreConfig. (* page size env parameter *)
 Proof.
-refine (
+ refine (
     mk_core_config
     (io_file_buffer_size.mk            false 65536%positive _)
     (io_map_index_interval.mk     false 128%positive _)
@@ -46,7 +46,7 @@ refine (
     (io_seqfile_compress_blocksize.mk  false 1000000%positive _)
     (io_seqfile_sorter_recordlimit.mk  false 1000000%positive _)
     (ipc_maximum_data_length.mk        false 67108864%positive _)
-); try (exact I).
+); try (exact I); try compute; auto.
 Qed.
 
 (*

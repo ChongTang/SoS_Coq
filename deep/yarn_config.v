@@ -34,4 +34,14 @@ Record YarnConfig := mk_yarn_config {
  ;yarn_sharedcache_client__server_thread__count: yarn_sharedcache_client__server_thread__count.ftype
  ;yarn_sharedcache_enabled: yarn_sharedcache_enabled.ftype
  ;yarn_nodemanager_recovery_compaction__interval__secs: yarn_nodemanager_recovery_compaction__interval__secs.ftype
+
+ (*constraints here*)
+ (*
+ ;am_mem_lt_total_mem: yarn_app_mapreduce_am_resource_mb.value yarn_app_mapreduce_am_resource_mb < env_phys_mem_mb myEnv
+ ;nm_cpucore_lt_total_core: yarn_nodemanager_resource_cpu__vcores.value yarn_nodemanager_resource_cpu__vcores < env_virt_CPU_cores myEnv
+ ;nm_mem_lt_total_mem: yarn_nodemanager_resource_memory__mb.value yarn_nodemanager_resource_memory__mb < env_phys_mem_mb myEnv
+ ;rm_store_class_check: In (yarn_resourcemanager_store_class.value yarn_resourcemanager_store_class) ("org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore"::"org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore"::nil)*)
+ ;incr_mem_lt_allowed: yarn_scheduler_increment__allocation__mb.value yarn_scheduler_increment__allocation__mb < yarn_scheduler_maximum__allocation__mb.value yarn_scheduler_maximum__allocation__mb
+ ;min_allocation_core_lt_max_allocation_core: yarn_scheduler_minimum__allocation__vcores.value yarn_scheduler_minimum__allocation__vcores < yarn_scheduler_maximum__allocation__vcores.value yarn_scheduler_maximum__allocation__vcores
+ ;min_allocation_mem_lt_max_allocation_mem: yarn_scheduler_minimum__allocation__mb.value yarn_scheduler_minimum__allocation__mb < yarn_scheduler_maximum__allocation__mb.value yarn_scheduler_maximum__allocation__mb
 }.

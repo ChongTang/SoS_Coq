@@ -1,4 +1,8 @@
 Require Export Coq.ZArith.BinInt.
+Require Export List.
+Open Scope list_scope.
+Require Export String.
+Open Scope string_scope.
 
 (*
 Define global (Export) environment parameter values 
@@ -23,16 +27,19 @@ Record Env := mk_env {
  ;env_hw_page_size: positive
  ;env_max_file_desc: positive
  ;env_max_threads: positive
+ ;env_comp_codecs: list string
 }.
 
 Definition myEnv:Env := mk_env 
   6%positive 
   48%positive
-  4096%positive
-  8192%positive
+  16384%positive
+  32768%positive
   4096%positive
   3000%positive
-  500%positive.
+  500%positive
+  ("org.apache.hadoop.io.compress.DefaultCodec"::"org.apache.hadoop.io.compress.GzipCodec"::"org.apache.hadoop.io.compress.BZip2Codec"::nil)
+.
 (*
 Definition env_phys_CPU_cores: positive := 6%positive.
 Definition env_virt_CPU_cores: positive := 48%positive.
