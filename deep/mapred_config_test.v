@@ -4,12 +4,11 @@ Require Import env_desc.
 Require Import Reals.
 Open Scope R_scope.
 
-
 Definition a_mapred_config: MapRedConfig.
 Proof.
 unshelve refine (
   mk_mapred_config 
-    (mapred_child_java_opts.mk            false   "-Xmx200m" _ )
+    (mapred_child_java_opts.mk            false   (mk_java_opts 200%positive 100%positive) _ )
     (mapred_map_output_compression_type.mk            false   "BLOCK" _ )
     (mapreduce_ifile_readahead.mk            false  true _ )
     (mapreduce_ifile_readahead_bytes.mk            false 4194304%positive  _ )
@@ -37,7 +36,7 @@ unshelve refine (
     (mapreduce_jobtracker_maxtasks_perjob.mk            false   1%Z _ )
     (mapreduce_jobtracker_taskcache_levels.mk            false  2%positive _ )
     (mapreduce_map_cpu_vcores.mk            false   1%positive _ )
-    (mapreduce_map_java_opts.mk            false   "-Xmx1152m" _ )
+    (mapreduce_map_java_opts.mk            false  (mk_java_opts 1152%positive 100%positive) _ )
     (mapreduce_map_maxattempts.mk            false   4%positive _ )
     (mapreduce_map_memory_mb.mk            false   1024%positive _ )
     (mapreduce_map_output_compress.mk            false   false _ )
@@ -51,7 +50,7 @@ unshelve refine (
     (mapreduce_output_fileoutputformat_compress_type.mk            false  "RECORD" _ )
     (mapreduce_reduce_cpu_vcores.mk            false   1%positive _ )
     (mapreduce_reduce_input_buffer_percent.mk            false   (0/1%R) _ )
-    (mapreduce_reduce_java_opts.mk            false  "-Xmx2560m" _ )
+    (mapreduce_reduce_java_opts.mk            false  (mk_java_opts 2560%positive 100%positive) _ )
     (mapreduce_reduce_markreset_buffer_percent.mk    false  (0/1%R) _ )
     (mapreduce_reduce_maxattempts.mk            false   4%positive _ )
     (mapreduce_reduce_memory_mb.mk            false   1024%positive _ )

@@ -1,3 +1,4 @@
+Require Export hadoop_base_types.
 Require Import env_desc.
 Require Export Coq.ZArith.BinInt.
 Require Export String.
@@ -7,6 +8,8 @@ Open Scope R_scope.
 
 (*
 Representing the range of "machine" types of fields of Hadoop configurations.
+
+THIS IS WRONG.. THESE ACTUALLY REPRESENT "BASE" TYPES FOR REAL-WORLD TYPES. --KS
 *)
 Inductive MTipe := mTipe_Z | mTipe_pos | mTipe_N | mTipe_string | mTipe_bool | mTipe_JavaOpts | mTipe_float.
 
@@ -20,7 +23,7 @@ Definition mTypeOfMTipe (mt: MTipe): Type :=
     | mTipe_N         => N             (* non-negative integers *)
     | mTipe_string  => string
     | mTipe_bool    => bool
-    | mTipe_JavaOpts => string
+    | mTipe_JavaOpts => JavaOpts
     | mTipe_float    => R
   end.
 

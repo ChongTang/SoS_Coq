@@ -75,24 +75,16 @@ Record MapRedConfig := mk_mapred_config {
  ;mapreduce_tasktracker_map_tasks_maximum: mapreduce_tasktracker_map_tasks_maximum.ftype
  ;mapreduce_tasktracker_reduce_tasks_maximum: mapreduce_tasktracker_reduce_tasks_maximum.ftype
  ;mapreduce_tasktracker_taskmemorymanager_monitoringinterval: mapreduce_tasktracker_taskmemorymanager_monitoringinterval.ftype
- 
- (*some restrictions from environment conditions
-  *first restriction: map CPU cores should less than total CPU cores.
-  
- ;map_cpu_core_le_total_cores: (mapreduce_map_cpu_vcores.value mapreduce_map_cpu_vcores) < (env_virt_CPU_cores myEnv)
- ;map_mem_le_total_mem: (mapreduce_map_memory_mb.value mapreduce_map_memory_mb) < (env_phys_mem_mb myEnv)*)
- (*some restrictions from environment conditions
-  *first restriction: map CPU cores should less than total CPU cores.
-  *)
-(* Currently, JavaOpts is defined as a string. So we cannot check this constraint.
+
+ (* 
+Currently, JavaOpts is defined as a string. So we cannot check this constraint.
  ;map_java_opts_le_map_mem: value mapreduce_map_java_opts <= value mapreduce_map_memory_mb
  ;reduce_java_opts_le_reduce_mem: value mapreduce_reduce_java_opts <= value mapreduce_reduce_memory_mb
+*)
+(*need N to Z*)
 
- ;map_comp_codec_check: In (mapreduce_map_output_compress_codec.value mapreduce_map_output_compress_codec) (env_comp_codecs myEnv)
- ;output_comp_codec_check: In (mapreduce_output_fileoutputformat_compress_codec.value mapreduce_output_fileoutputformat_compress_codec) (env_comp_codecs myEnv)*)
-
- (*need N to Z*)
  ;maxsplit_lt_minsplit: Z.gt (Zpos (mapreduce_input_fileinputformat_split_maxsize.value mapreduce_input_fileinputformat_split_maxsize)) (Z.of_N (mapreduce_input_fileinputformat_split_minsize.value mapreduce_input_fileinputformat_split_minsize))
+
 }.
 
 

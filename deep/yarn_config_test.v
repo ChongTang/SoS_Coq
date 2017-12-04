@@ -11,7 +11,7 @@ Definition a_yarn_config: YarnConfig.
 Proof.
 unshelve refine (
   mk_yarn_config
-    (yarn_app_mapreduce_am_command__opts.mk            false   "-Xmx1024m" _ )
+    (yarn_app_mapreduce_am_command__opts.mk            false   (mk_java_opts 1024%positive 100%positive) _ )
     (yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size.mk            false   10%positive _ )
     (yarn_app_mapreduce_am_job_task_listener_thread__count.mk            false   30%positive _ )
     (yarn_app_mapreduce_am_resource_cpu__vcores.mk            false    1%positive _ )
@@ -46,6 +46,6 @@ unshelve refine (
     _
     _
     _
-); try (exact I); compute; try reflexivity; auto.
+); try (exact I); try compute; try reflexivity; auto.
 Qed.
 

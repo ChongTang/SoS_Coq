@@ -13,7 +13,7 @@ Open Scope list_scope.
 Module mapred_child_java_opts_desc <: FieldModuleType.
   Definition fName := "mapred.child.java.opts".
   Definition mTipe := mTipe_JavaOpts.
-  Definition rType := fun value: string => True.
+  Definition rType := fun value: JavaOpts => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -337,7 +337,7 @@ Export mapreduce_map_cpu_vcores.
 Module mapreduce_map_java_opts_desc <: FieldModuleType.
   Definition fName := "mapreduce.map.java.opts".
   Definition mTipe := mTipe_JavaOpts.
-  Definition rType := fun value: string => True.
+  Definition rType := fun value: JavaOpts => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -505,7 +505,7 @@ Export mapreduce_reduce_input_buffer_percent.
 Module mapreduce_reduce_java_opts_desc <: FieldModuleType.
   Definition fName := "mapreduce.reduce.java.opts".
   Definition mTipe := mTipe_JavaOpts.
-  Definition rType := fun value: string => True.
+  Definition rType := fun value: JavaOpts => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".

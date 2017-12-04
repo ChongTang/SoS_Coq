@@ -39,7 +39,7 @@ Definition a_mapred_config: MapRedConfig.
 Proof.
 unshelve refine (
   mk_mapred_config 
-    (mapred_child_java_opts.mk            false   "-Xmx200m" _ )
+    (mapred_child_java_opts.mk            false   (mk_java_opts 200%positive 100%positive) _ )
     (mapred_map_output_compression_type.mk            false   "BLOCK" _ )
     (mapreduce_ifile_readahead.mk            false  true _ )
     (mapreduce_ifile_readahead_bytes.mk            false 4194304%positive  _ )
@@ -67,7 +67,7 @@ unshelve refine (
     (mapreduce_jobtracker_maxtasks_perjob.mk            false   1%Z _ )
     (mapreduce_jobtracker_taskcache_levels.mk            false  2%positive _ )
     (mapreduce_map_cpu_vcores.mk            false   1%positive _ )
-    (mapreduce_map_java_opts.mk            false   "-Xmx1152m" _ )
+    (mapreduce_map_java_opts.mk            false  (mk_java_opts 1152%positive 100%positive) _ )
     (mapreduce_map_maxattempts.mk            false   4%positive _ )
     (mapreduce_map_memory_mb.mk            false   1024%positive _ )
     (mapreduce_map_output_compress.mk            false   false _ )
@@ -81,7 +81,7 @@ unshelve refine (
     (mapreduce_output_fileoutputformat_compress_type.mk            false  "RECORD" _ )
     (mapreduce_reduce_cpu_vcores.mk            false   1%positive _ )
     (mapreduce_reduce_input_buffer_percent.mk            false   (0/1%R) _ )
-    (mapreduce_reduce_java_opts.mk            false  "-Xmx2560m" _ )
+    (mapreduce_reduce_java_opts.mk            false  (mk_java_opts 2560%positive 100%positive) _ )
     (mapreduce_reduce_markreset_buffer_percent.mk    false  (0/1%R) _ )
     (mapreduce_reduce_maxattempts.mk            false   4%positive _ )
     (mapreduce_reduce_memory_mb.mk            false   1024%positive _ )
@@ -115,7 +115,7 @@ Definition a_yarn_config: YarnConfig.
 Proof.
 unshelve refine (
   mk_yarn_config
-    (yarn_app_mapreduce_am_command__opts.mk            false   "-Xmx1024m" _ )
+    (yarn_app_mapreduce_am_command__opts.mk            false   (mk_java_opts 1024%positive 100%positive) _ )
     (yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size.mk            false   10%positive _ )
     (yarn_app_mapreduce_am_job_task_listener_thread__count.mk            false   30%positive _ )
     (yarn_app_mapreduce_am_resource_cpu__vcores.mk            false    1%positive _ )
@@ -147,7 +147,6 @@ unshelve refine (
     (yarn_sharedcache_admin_thread__count.mk            false   1%positive _ )
     (yarn_sharedcache_client__server_thread__count.mk            false   50%positive _ )
     (yarn_sharedcache_enabled.mk            false   false _ )
-
     _
     _
     _

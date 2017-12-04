@@ -12,7 +12,7 @@ Open Scope list_scope.
 Module yarn_app_mapreduce_am_command__opts_desc <: FieldModuleType.
   Definition fName := "yarn.app.mapreduce.am.command-opts".
   Definition mTipe := mTipe_JavaOpts.
-  Definition rType := fun value: string => True.
+  Definition rType := fun value: JavaOpts => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
