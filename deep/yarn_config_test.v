@@ -21,16 +21,12 @@ unshelve refine (
     (yarn_nodemanager_localizer_fetch_thread__count.mk            false   4%positive _ )
     (yarn_nodemanager_recovery_compaction__interval__secs.mk            false   3600%positive _ )
     (yarn_nodemanager_resource_cpu__vcores.mk            false   8%positive _ )
-    (yarn_nodemanager_resource_memory__mb.mk            false   8192%positive _ )
+    (yarn_nodemanager_resource_memory__mb.mk false 8192%positive _ )
     (yarn_nodemanager_resource_percentage__physical__cpu__limit.mk            false   100%positive _ )
     (yarn_nodemanager_vmem__check__enabled.mk            false  true _ )
-    (yarn_nodemanager_vmem__pmem__ratio.mk            false   (21/10)%R _ )
-    (yarn_nodemanager_windows__container_cpu__limit_enabled.mk           false   false _ )
-    (yarn_nodemanager_windows__container_memory__limit_enabled.mk            false   false _ )
     (yarn_resourcemanager_admin_client_thread__count.mk            false   1%positive _ )
     (yarn_resourcemanager_amlauncher_thread__count.mk            false   50%positive _ )
     (yarn_resourcemanager_client_thread__count.mk            false   50%positive _ )
-    (yarn_resourcemanager_ha_enabled.mk            false   false _ )
     (yarn_resourcemanager_resource__tracker_client_thread__count.mk            false   50%positive _ )
     (yarn_resourcemanager_scheduler_class.mk            false   "org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler" _ )
     (yarn_resourcemanager_scheduler_client_thread__count.mk            false   50%positive _ )
@@ -43,6 +39,8 @@ unshelve refine (
     (yarn_sharedcache_admin_thread__count.mk            false   1%positive _ )
     (yarn_sharedcache_client__server_thread__count.mk            false   50%positive _ )
     (yarn_sharedcache_enabled.mk            false   false _ )
+    _
+    _
     _
     _
     _

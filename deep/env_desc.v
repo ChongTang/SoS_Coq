@@ -31,8 +31,8 @@ Record Env := mk_env {
 }.
 
 Definition myEnv:Env := mk_env 
-  20%positive 
-  40%positive
+  14%positive 
+  28%positive
   32768%positive (*32GB physical memory*)
   32768%positive (*32GB physical memory*)
   4096%positive  (*page size*)

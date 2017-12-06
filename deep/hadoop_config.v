@@ -14,9 +14,18 @@ Open Scope R_scope.
 Here we define a Hadoop configuration. It's a compound system built based on sub-components.
 It also contains a few dependent types and constrains.
 *)
-Record HadoopConfig (env: Env) := mk_hadoop_config {
+Record HadoopConfig := mk_hadoop_config {
   yarn_config: YarnConfig
  ;mapred_config: MapRedConfig
  ;core_config: CoreConfig
  ;hdfs_config: HDFSConfig
+
+ (*some cross-module constraints
+  Problem: Coq takes a long time to prove these two constraints. So comment out for now.
+
+ ;mr_mem_lt_yarn_mem: Pos.lt (mapreduce_map_memory_mb.value (mapreduce_map_memory_mb mapred_config)) 
+   (yarn_nodemanager_resource_memory__mb.value (yarn_nodemanager_resource_memory__mb yarn_config))
+ ;mr_core_lt_yarn_core: Pos.lt (mapreduce_map_cpu_vcores.value (mapreduce_map_cpu_vcores mapred_config)) 
+   (yarn_nodemanager_resource_cpu__vcores.value (yarn_nodemanager_resource_cpu__vcores yarn_config))
+*)
 }.

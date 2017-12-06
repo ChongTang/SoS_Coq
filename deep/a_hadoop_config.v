@@ -40,7 +40,6 @@ Proof.
 unshelve refine (
   mk_mapred_config 
     (mapred_child_java_opts.mk            false   (mk_java_opts 200%positive 100%positive) _ )
-    (mapred_map_output_compression_type.mk            false   "BLOCK" _ )
     (mapreduce_ifile_readahead.mk            false  true _ )
     (mapreduce_ifile_readahead_bytes.mk            false 4194304%positive  _ )
     (mapreduce_input_fileinputformat_split_maxsize.mk            false   268435456%positive _ )
@@ -68,7 +67,6 @@ unshelve refine (
     (mapreduce_jobtracker_taskcache_levels.mk            false  2%positive _ )
     (mapreduce_map_cpu_vcores.mk            false   1%positive _ )
     (mapreduce_map_java_opts.mk            false  (mk_java_opts 1152%positive 100%positive) _ )
-    (mapreduce_map_maxattempts.mk            false   4%positive _ )
     (mapreduce_map_memory_mb.mk            false   1024%positive _ )
     (mapreduce_map_output_compress.mk            false   false _ )
     (mapreduce_map_output_compress_codec.mk            false   "org.apache.hadoop.io.compress.DefaultCodec" _ )
@@ -83,14 +81,12 @@ unshelve refine (
     (mapreduce_reduce_input_buffer_percent.mk            false   (0/1%R) _ )
     (mapreduce_reduce_java_opts.mk            false  (mk_java_opts 2560%positive 100%positive) _ )
     (mapreduce_reduce_markreset_buffer_percent.mk    false  (0/1%R) _ )
-    (mapreduce_reduce_maxattempts.mk            false   4%positive _ )
     (mapreduce_reduce_memory_mb.mk            false   1024%positive _ )
     (mapreduce_reduce_merge_inmem_threshold.mk            false   1000%Z _ )
     (mapreduce_reduce_shuffle_input_buffer_percent.mk            false   (7/10%R) _ )
     (mapreduce_reduce_shuffle_memory_limit_percent.mk            false   (25/100%R) _ )
     (mapreduce_reduce_shuffle_merge_percent.mk            false   (66/100%R) _ )
     (mapreduce_reduce_shuffle_parallelcopies.mk            false   5%positive _ )
-    (mapreduce_reduce_shuffle_retry__delay_max_ms.mk            false  60000%positive _ )
     (mapreduce_shuffle_max_connections.mk            false   0%N _ )
     (mapreduce_shuffle_max_threads.mk            false   0%N _ )
     (mapreduce_shuffle_transfer_buffer_size.mk            false   131072%positive _ )
@@ -125,16 +121,12 @@ unshelve refine (
     (yarn_nodemanager_localizer_fetch_thread__count.mk            false   4%positive _ )
     (yarn_nodemanager_recovery_compaction__interval__secs.mk            false   3600%positive _ )
     (yarn_nodemanager_resource_cpu__vcores.mk            false   8%positive _ )
-    (yarn_nodemanager_resource_memory__mb.mk            false   8192%positive _ )
+    (yarn_nodemanager_resource_memory__mb.mk false 8192%positive _ )
     (yarn_nodemanager_resource_percentage__physical__cpu__limit.mk            false   100%positive _ )
     (yarn_nodemanager_vmem__check__enabled.mk            false  true _ )
-    (yarn_nodemanager_vmem__pmem__ratio.mk            false   (21/10)%R _ )
-    (yarn_nodemanager_windows__container_cpu__limit_enabled.mk           false   false _ )
-    (yarn_nodemanager_windows__container_memory__limit_enabled.mk            false   false _ )
     (yarn_resourcemanager_admin_client_thread__count.mk            false   1%positive _ )
     (yarn_resourcemanager_amlauncher_thread__count.mk            false   50%positive _ )
     (yarn_resourcemanager_client_thread__count.mk            false   50%positive _ )
-    (yarn_resourcemanager_ha_enabled.mk            false   false _ )
     (yarn_resourcemanager_resource__tracker_client_thread__count.mk            false   50%positive _ )
     (yarn_resourcemanager_scheduler_class.mk            false   "org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler" _ )
     (yarn_resourcemanager_scheduler_client_thread__count.mk            false   50%positive _ )
@@ -150,13 +142,24 @@ unshelve refine (
     _
     _
     _
+    _
+    _
 ); try (exact I); try compute; try reflexivity; auto.
 Qed.
 
 
-Definition a_hadoop_config := mk_hadoop_config myEnv
-  a_yarn_config
-  a_mapred_config
-  a_core_config
-  a_hdfs_config.
+Definition a_hadoop_config: HadoopConfig.
+Proof.
+unshelve refine (
+  mk_hadoop_config
+    a_yarn_config
+    a_mapred_config
+    a_core_config
+    a_hdfs_config
+    (*
+    _
+    _
+    *)
+); try (exact I); try compute; try reflexivity; auto.
+Qed.
 

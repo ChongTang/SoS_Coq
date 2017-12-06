@@ -10,7 +10,6 @@ Open Scope Z_scope.
 
 Record MapRedConfig := mk_mapred_config {
   mapred_child_java_opts: mapred_child_java_opts.ftype
- ;mapred_map_output_compression_type: mapred_map_output_compression_type.ftype
  ;mapreduce_ifile_readahead: mapreduce_ifile_readahead.ftype
  ;mapreduce_ifile_readahead_bytes: mapreduce_ifile_readahead_bytes.ftype
  ;mapreduce_input_fileinputformat_split_maxsize: mapreduce_input_fileinputformat_split_maxsize.ftype
@@ -38,7 +37,6 @@ Record MapRedConfig := mk_mapred_config {
  ;mapreduce_jobtracker_taskcache_levels: mapreduce_jobtracker_taskcache_levels.ftype
  ;mapreduce_map_cpu_vcores: mapreduce_map_cpu_vcores.ftype
  ;mapreduce_map_java_opts: mapreduce_map_java_opts.ftype
- ;mapreduce_map_maxattempts: mapreduce_map_maxattempts.ftype
  ;mapreduce_map_memory_mb: mapreduce_map_memory_mb.ftype
  ;mapreduce_map_output_compress: mapreduce_map_output_compress.ftype
  ;mapreduce_map_output_compress_codec: mapreduce_map_output_compress_codec.ftype
@@ -53,14 +51,12 @@ Record MapRedConfig := mk_mapred_config {
  ;mapreduce_reduce_input_buffer_percent: mapreduce_reduce_input_buffer_percent.ftype
  ;mapreduce_reduce_java_opts: mapreduce_reduce_java_opts.ftype
  ;mapreduce_reduce_markreset_buffer_percent: mapreduce_reduce_markreset_buffer_percent.ftype
- ;mapreduce_reduce_maxattempts: mapreduce_reduce_maxattempts.ftype
  ;mapreduce_reduce_memory_mb: mapreduce_reduce_memory_mb.ftype
  ;mapreduce_reduce_merge_inmem_threshold: mapreduce_reduce_merge_inmem_threshold.ftype
  ;mapreduce_reduce_shuffle_input_buffer_percent: mapreduce_reduce_shuffle_input_buffer_percent.ftype
  ;mapreduce_reduce_shuffle_memory_limit_percent: mapreduce_reduce_shuffle_memory_limit_percent.ftype
  ;mapreduce_reduce_shuffle_merge_percent: mapreduce_reduce_shuffle_merge_percent.ftype
  ;mapreduce_reduce_shuffle_parallelcopies: mapreduce_reduce_shuffle_parallelcopies.ftype
- ;mapreduce_reduce_shuffle_retry__delay_max_ms: mapreduce_reduce_shuffle_retry__delay_max_ms.ftype
  ;mapreduce_shuffle_max_connections: mapreduce_shuffle_max_connections.ftype
  ;mapreduce_shuffle_max_threads: mapreduce_shuffle_max_threads.ftype
  ;mapreduce_shuffle_transfer_buffer_size: mapreduce_shuffle_transfer_buffer_size.ftype
