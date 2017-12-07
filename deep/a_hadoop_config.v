@@ -1,6 +1,7 @@
 Require Import hadoop_config.
 Require Import Reals.
 Open Scope R_scope.
+Require Import Omega.
 
 (*
 Require Import String.
@@ -22,7 +23,7 @@ unshelve refine (
     (io_seqfile_sorter_recordlimit.mk  false 1000000%positive _)
     (ipc_maximum_data_length.mk        false 67108864%positive _)
 ); try (exact I); try compute; auto.
-Qed.
+Defined.
 
 
 Definition a_hdfs_config: HDFSConfig.
@@ -32,7 +33,7 @@ unshelve refine (
     (dfs_namenode_handler_count.mk            false 10%positive _)
     (dfs_replication.mk     false 1%positive _)
 ); try (exact I).
-Qed.
+Defined.
 
 
 Definition a_mapred_config: MapRedConfig.
@@ -104,7 +105,7 @@ unshelve refine (
 
     _
 );try (exact I); simpl; try compute; try reflexivity; auto.
-Qed.
+Defined.
 
 
 Definition a_yarn_config: YarnConfig.
@@ -145,7 +146,7 @@ unshelve refine (
     _
     _
 ); try (exact I); try compute; try reflexivity; auto.
-Qed.
+Defined.
 
 
 Definition a_hadoop_config: HadoopConfig.
@@ -156,10 +157,8 @@ unshelve refine (
     a_mapred_config
     a_core_config
     a_hdfs_config
-    (*
-    _
-    _
-    *)
-); try (exact I); try compute; try reflexivity; auto.
-Qed.
 
+    _
+    _
+); try (exact I); simpl; omega.
+Defined.

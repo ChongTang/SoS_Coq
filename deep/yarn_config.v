@@ -32,9 +32,15 @@ Record YarnConfig := mk_yarn_config {
  ;yarn_sharedcache_enabled: yarn_sharedcache_enabled.ftype
 
  (*constraints here*)
- ;incr_mem_lt_allowed: yarn_scheduler_increment__allocation__mb.value yarn_scheduler_increment__allocation__mb < yarn_scheduler_maximum__allocation__mb.value yarn_scheduler_maximum__allocation__mb
- ;min_allocation_core_lt_max_allocation_core: yarn_scheduler_minimum__allocation__vcores.value yarn_scheduler_minimum__allocation__vcores < yarn_scheduler_maximum__allocation__vcores.value yarn_scheduler_maximum__allocation__vcores
- ;min_allocation_mem_lt_max_allocation_mem: yarn_scheduler_minimum__allocation__mb.value yarn_scheduler_minimum__allocation__mb < yarn_scheduler_maximum__allocation__mb.value yarn_scheduler_maximum__allocation__mb
+ ;incr_mem_lt_allowed: 
+   yarn_scheduler_increment__allocation__mb.value yarn_scheduler_increment__allocation__mb < 
+     yarn_scheduler_maximum__allocation__mb.value yarn_scheduler_maximum__allocation__mb
+ ;min_allocation_core_lt_max_allocation_core: 
+    yarn_scheduler_minimum__allocation__vcores.value yarn_scheduler_minimum__allocation__vcores < 
+      yarn_scheduler_maximum__allocation__vcores.value yarn_scheduler_maximum__allocation__vcores
+ ;min_allocation_mem_lt_max_allocation_mem: 
+    yarn_scheduler_minimum__allocation__mb.value yarn_scheduler_minimum__allocation__mb < 
+      yarn_scheduler_maximum__allocation__mb.value yarn_scheduler_maximum__allocation__mb
  ;nm_core_lt_env_core: (yarn_nodemanager_resource_cpu__vcores.value yarn_nodemanager_resource_cpu__vcores) < (env_virt_CPU_cores myEnv)
  ;nm_mem_lt_env_mem: (yarn_nodemanager_resource_memory__mb.value yarn_nodemanager_resource_memory__mb) < (env_virt_mem_mb myEnv)
 }.
