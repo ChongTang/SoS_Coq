@@ -5,10 +5,10 @@ Open Scope string_scope.
 Open Scope Z_scope.
 Open Scope positive_scope.
 
-Module dfs_namenode_handler_count_desc <: FieldModuleType.
+Module dfs_namenode_handler_count_desc <: Field_ModuleType.
   Definition fName := "dfs.namenode.handler.count".
-  Definition mTipe := mTipe_pos.
-  Definition rType := fun value: positive => True.
+  Definition rTipe := rTipe_pos.
+  Definition rProperty := fun value: positive => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -17,10 +17,10 @@ Module dfs_namenode_handler_count := FieldModuleFunctor dfs_namenode_handler_cou
 Export dfs_namenode_handler_count.
 
 
-Module dfs_replication_desc <: FieldModuleType.
+Module dfs_replication_desc <: Field_ModuleType.
   Definition fName := "dfs.replication".
-  Definition mTipe := mTipe_pos.
-  Definition rType := fun value: positive => True.
+  Definition rTipe := rTipe_pos.
+  Definition rProperty := fun value: positive => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
