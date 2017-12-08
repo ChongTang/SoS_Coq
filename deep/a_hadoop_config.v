@@ -12,7 +12,7 @@ Open Scope positive_scope.
 Require Import Reals.
 Open Scope R_scope.*)
 
-Definition a_core_config: CoreConfig. (* page size env parameter *)
+Definition a_core_config: CoreConfig. 
 Proof.
 unshelve refine (
     mk_core_config

@@ -1,0 +1,709 @@
+\documentclass[12pt]{report}
+\usepackage[]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fullpage}
+\usepackage{coqdoc}
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file has been automatically generated with the command
+%% coqdoc --latex yarn_config_fields.v 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\coqlibrary{yarn config fields}{Library }{yarn\_config\_fields}
+
+\begin{coqdoccode}
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Export} \coqdocvar{fieldType}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqdocvar{env\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqdocvar{Coq.ZArith.Zdiv}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Open} \coqdockw{Scope} \coqdocvar{string\_scope}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Open} \coqdockw{Scope} \coqdocvar{Z\_scope}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Open} \coqdockw{Scope} \coqdocvar{positive\_scope}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqdocvar{Reals}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Open} \coqdockw{Scope} \coqdocvar{R\_scope}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Export} \coqdocvar{List}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Open} \coqdockw{Scope} \coqdocvar{list\_scope}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_app\_mapreduce\_am\_command\_\_opts\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.app.mapreduce.am.command-opts".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_JavaOpts}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{JavaOpts} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_app\_mapreduce\_am\_command\_\_opts\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_app\_mapreduce\_am\_command\_\_opts} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_app\_mapreduce\_am\_command\_\_opts\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_app\_mapreduce\_am\_command\_\_opts}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_app\_mapreduce\_am\_containerlauncher\_threadpool\_\_initial\_\_size\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.app.mapreduce.am.containerlauncher.threadpool-initial-size".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_app\_mapreduce\_am\_containerlauncher\_threadpool\_\_initial\_\_size\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_app\_mapreduce\_am\_containerlauncher\_threadpool\_\_initial\_\_size} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_app\_mapreduce\_am\_containerlauncher\_threadpool\_\_initial\_\_size\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_app\_mapreduce\_am\_containerlauncher\_threadpool\_\_initial\_\_size}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_app\_mapreduce\_am\_job\_task\_listener\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.app.mapreduce.am.job.task.listener.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_app\_mapreduce\_am\_job\_task\_listener\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_app\_mapreduce\_am\_job\_task\_listener\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_app\_mapreduce\_am\_job\_task\_listener\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_app\_mapreduce\_am\_job\_task\_listener\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_app\_mapreduce\_am\_resource\_cpu\_\_vcores\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.app.mapreduce.am.resource.cpu-vcores".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_app\_mapreduce\_am\_resource\_cpu\_\_vcores\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_app\_mapreduce\_am\_resource\_cpu\_\_vcores} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_app\_mapreduce\_am\_resource\_cpu\_\_vcores\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_app\_mapreduce\_am\_resource\_cpu\_\_vcores}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_app\_mapreduce\_am\_resource\_mb\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.app.mapreduce.am.resource.mb".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{Pos.lt} \coqdocvar{value} (\coqdocvar{env\_phys\_mem\_mb} \coqdocvar{myEnv}).\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_app\_mapreduce\_am\_resource\_mb\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_app\_mapreduce\_am\_resource\_mb} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_app\_mapreduce\_am\_resource\_mb\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_app\_mapreduce\_am\_resource\_mb}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_container\_\_manager\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.container-manager.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_container\_\_manager\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_container\_\_manager\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_container\_\_manager\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_container\_\_manager\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_localizer\_client\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.localizer.client.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_localizer\_client\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_localizer\_client\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_localizer\_client\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_localizer\_client\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_localizer\_fetch\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.localizer.fetch.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_localizer\_fetch\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_localizer\_fetch\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_localizer\_fetch\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_localizer\_fetch\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_resource\_cpu\_\_vcores\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.resource.cpu-vcores".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{Pos.lt} \coqdocvar{value} (\coqdocvar{env\_virt\_CPU\_cores} \coqdocvar{myEnv}).\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_resource\_cpu\_\_vcores\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_resource\_cpu\_\_vcores} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_resource\_cpu\_\_vcores\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_resource\_cpu\_\_vcores}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_resource\_memory\_\_mb\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.resource.memory-mb".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{Pos.lt} \coqdocvar{value} (\coqdocvar{env\_phys\_mem\_mb} \coqdocvar{myEnv}).\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_resource\_memory\_\_mb\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_resource\_memory\_\_mb} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_resource\_memory\_\_mb\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_resource\_memory\_\_mb}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_resource\_percentage\_\_physical\_\_cpu\_\_limit\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.resource.percentage-physical-cpu-limit".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_resource\_percentage\_\_physical\_\_cpu\_\_limit\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_resource\_percentage\_\_physical\_\_cpu\_\_limit} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_resource\_percentage\_\_physical\_\_cpu\_\_limit\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_resource\_percentage\_\_physical\_\_cpu\_\_limit}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_vmem\_\_check\_\_enabled\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.vmem-check-enabled".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_bool}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{bool} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_vmem\_\_check\_\_enabled\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_vmem\_\_check\_\_enabled} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_vmem\_\_check\_\_enabled\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_vmem\_\_check\_\_enabled}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_vmem\_\_pmem\_\_ratio\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.vmem-pmem-ratio".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_float}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{R} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_vmem\_\_pmem\_\_ratio\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_vmem\_\_pmem\_\_ratio} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_vmem\_\_pmem\_\_ratio\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_vmem\_\_pmem\_\_ratio}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_windows\_\_container\_cpu\_\_limit\_enabled\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.windows-container.cpu-limit.enabled".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_bool}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{bool} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_windows\_\_container\_cpu\_\_limit\_enabled\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_windows\_\_container\_cpu\_\_limit\_enabled} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_windows\_\_container\_cpu\_\_limit\_enabled\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_windows\_\_container\_cpu\_\_limit\_enabled}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_windows\_\_container\_memory\_\_limit\_enabled\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.windows-container.memory-limit.enabled".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_bool}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{bool} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_windows\_\_container\_memory\_\_limit\_enabled\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_windows\_\_container\_memory\_\_limit\_enabled} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_windows\_\_container\_memory\_\_limit\_enabled\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_windows\_\_container\_memory\_\_limit\_enabled}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_admin\_client\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.resourcemanager.admin.client.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_resourcemanager\_admin\_client\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_admin\_client\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_resourcemanager\_admin\_client\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_resourcemanager\_admin\_client\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_amlauncher\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.resourcemanager.amlauncher.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_resourcemanager\_amlauncher\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_amlauncher\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_resourcemanager\_amlauncher\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_resourcemanager\_amlauncher\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_client\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.resourcemanager.client.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_resourcemanager\_client\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_client\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_resourcemanager\_client\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_resourcemanager\_client\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_ha\_enabled\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.resourcemanager.ha.enabled".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_bool}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{bool} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_resourcemanager\_ha\_enabled\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_ha\_enabled} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_resourcemanager\_ha\_enabled\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_resourcemanager\_ha\_enabled}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_resource\_\_tracker\_client\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.resourcemanager.resource-tracker.client.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_resourcemanager\_resource\_\_tracker\_client\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_resource\_\_tracker\_client\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_resourcemanager\_resource\_\_tracker\_client\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_resourcemanager\_resource\_\_tracker\_client\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_scheduler\_class\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.resourcemanager.scheduler.class".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_string}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{string} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_resourcemanager\_scheduler\_class\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_scheduler\_class} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_resourcemanager\_scheduler\_class\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_resourcemanager\_scheduler\_class}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_scheduler\_client\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.resourcemanager.scheduler.client.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_resourcemanager\_scheduler\_client\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_scheduler\_client\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_resourcemanager\_scheduler\_client\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_resourcemanager\_scheduler\_client\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_store\_class\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.resourcemanager.store.class".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_string}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{string} \ensuremath{\Rightarrow} \coqdocvar{In} \coqdocvar{value} ("org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore"::"org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore"::\coqdocvar{nil}).\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_resourcemanager\_store\_class\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_resourcemanager\_store\_class} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_resourcemanager\_store\_class\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_resourcemanager\_store\_class}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_scheduler\_increment\_\_allocation\_\_mb\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.scheduler.increment-allocation-mb".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_scheduler\_increment\_\_allocation\_\_mb\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_scheduler\_increment\_\_allocation\_\_mb} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_scheduler\_increment\_\_allocation\_\_mb\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_scheduler\_increment\_\_allocation\_\_mb}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_mb\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.scheduler.maximum-allocation-mb".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_mb\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_mb} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_mb\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_mb}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_vcores\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.scheduler.maximum-allocation-vcores".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_vcores\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_vcores} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_vcores\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_vcores}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_mb\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.scheduler.minimum-allocation-mb".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_mb\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_mb} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_mb\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_mb}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_vcores\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.scheduler.minimum-allocation-vcores".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_vcores\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_vcores} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_vcores\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_vcores}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_sharedcache\_admin\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.sharedcache.admin.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_sharedcache\_admin\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_sharedcache\_admin\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_sharedcache\_admin\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_sharedcache\_admin\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_sharedcache\_client\_\_server\_thread\_\_count\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.sharedcache.client-server.thread-count".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_sharedcache\_client\_\_server\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_sharedcache\_client\_\_server\_thread\_\_count} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_sharedcache\_client\_\_server\_thread\_\_count\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_sharedcache\_client\_\_server\_thread\_\_count}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_sharedcache\_enabled\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.sharedcache.enabled".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_bool}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{bool} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_sharedcache\_enabled\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_sharedcache\_enabled} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_sharedcache\_enabled\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_sharedcache\_enabled}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_recovery\_compaction\_\_interval\_\_secs\_desc} <: \coqdocvar{FieldModuleType}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fName} := "yarn.nodemanager.recovery.compaction-interval-secs".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{mTipe} := \coqdocvar{mTipe\_pos}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{rType} := \coqdockw{fun} \coqdocvar{value}: \coqdocvar{positive} \ensuremath{\Rightarrow} \coqdocvar{True}.\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fUnit} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fInterp} := "".\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{Definition} \coqdocvar{fAdvice} := "".\coqdoceol
+\coqdocnoindent
+\coqdockw{End} \coqdocvar{yarn\_nodemanager\_recovery\_compaction\_\_interval\_\_secs\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Module} \coqdocvar{yarn\_nodemanager\_recovery\_compaction\_\_interval\_\_secs} := \coqdocvar{FieldModuleFunctor} \coqdocvar{yarn\_nodemanager\_recovery\_compaction\_\_interval\_\_secs\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Export} \coqdocvar{yarn\_nodemanager\_recovery\_compaction\_\_interval\_\_secs}.\coqdoceol
+\end{coqdoccode}
+\end{document}

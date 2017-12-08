@@ -1,0 +1,115 @@
+\documentclass[12pt]{report}
+\usepackage[]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fullpage}
+\usepackage{coqdoc}
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file has been automatically generated with the command
+%% coqdoc --latex yarn_config_test.v 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\coqlibrary{yarn config test}{Library }{yarn\_config\_test}
+
+\begin{coqdoccode}
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqdocvar{yarn\_config}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqdocvar{Omega}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqdocvar{env\_desc}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqdocvar{Reals}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Open} \coqdockw{Scope} \coqdocvar{R\_scope}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Open} \coqdockw{Scope} \coqdocvar{Z\_scope}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Open} \coqdockw{Scope} \coqdocvar{positive\_scope}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Definition} \coqdocvar{a\_yarn\_config}: \coqdocvar{YarnConfig}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdocvar{unshelve} \coqdoctac{refine} (\coqdoceol
+\coqdocindent{1.00em}
+\coqdocvar{mk\_yarn\_config}\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_app\_mapreduce\_am\_command\_\_opts.mk}            \coqdocvar{false}   (\coqdocvar{mk\_java\_opts} 1024\%\coqdocvar{positive} 100\%\coqdocvar{positive}) \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_app\_mapreduce\_am\_containerlauncher\_threadpool\_\_initial\_\_size.mk}            \coqdocvar{false}   10\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_app\_mapreduce\_am\_job\_task\_listener\_thread\_\_count.mk}            \coqdocvar{false}   30\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_app\_mapreduce\_am\_resource\_cpu\_\_vcores.mk}            \coqdocvar{false}    1\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_app\_mapreduce\_am\_resource\_mb.mk}            \coqdocvar{false}   2880\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_container\_\_manager\_thread\_\_count.mk}            \coqdocvar{false}   20\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_localizer\_client\_thread\_\_count.mk}            \coqdocvar{false}   5\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_localizer\_fetch\_thread\_\_count.mk}            \coqdocvar{false}   4\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_recovery\_compaction\_\_interval\_\_secs.mk}            \coqdocvar{false}   3600\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_resource\_cpu\_\_vcores.mk}            \coqdocvar{false}   8\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_resource\_memory\_\_mb.mk}            \coqdocvar{false}   8192\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_resource\_percentage\_\_physical\_\_cpu\_\_limit.mk}            \coqdocvar{false}   100\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_vmem\_\_check\_\_enabled.mk}            \coqdocvar{false}  \coqdocvar{true} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_vmem\_\_pmem\_\_ratio.mk}            \coqdocvar{false}   (21/10)\%\coqdocvar{R} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_windows\_\_container\_cpu\_\_limit\_enabled.mk}           \coqdocvar{false}   \coqdocvar{false} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_nodemanager\_windows\_\_container\_memory\_\_limit\_enabled.mk}            \coqdocvar{false}   \coqdocvar{false} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_resourcemanager\_admin\_client\_thread\_\_count.mk}            \coqdocvar{false}   1\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_resourcemanager\_amlauncher\_thread\_\_count.mk}            \coqdocvar{false}   50\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_resourcemanager\_client\_thread\_\_count.mk}            \coqdocvar{false}   50\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_resourcemanager\_ha\_enabled.mk}            \coqdocvar{false}   \coqdocvar{false} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_resourcemanager\_resource\_\_tracker\_client\_thread\_\_count.mk}            \coqdocvar{false}   50\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_resourcemanager\_scheduler\_class.mk}            \coqdocvar{false}   "org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler" \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_resourcemanager\_scheduler\_client\_thread\_\_count.mk}            \coqdocvar{false}   50\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_resourcemanager\_store\_class.mk}            \coqdocvar{false}   "org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore" \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_scheduler\_increment\_\_allocation\_\_mb.mk}            \coqdocvar{false}   1\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_mb.mk}            \coqdocvar{false}   8192\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_scheduler\_maximum\_\_allocation\_\_vcores.mk}            \coqdocvar{false}   32\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_mb.mk}            \coqdocvar{false}   1024\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_scheduler\_minimum\_\_allocation\_\_vcores.mk}            \coqdocvar{false}   1\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_sharedcache\_admin\_thread\_\_count.mk}            \coqdocvar{false}   1\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_sharedcache\_client\_\_server\_thread\_\_count.mk}            \coqdocvar{false}   50\%\coqdocvar{positive} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+(\coqdocvar{yarn\_sharedcache\_enabled.mk}            \coqdocvar{false}   \coqdocvar{false} \coqdocvar{\_} )\coqdoceol
+\coqdocindent{2.00em}
+\coqdocvar{\_}\coqdoceol
+\coqdocindent{2.00em}
+\coqdocvar{\_}\coqdoceol
+\coqdocindent{2.00em}
+\coqdocvar{\_}\coqdoceol
+\coqdocnoindent
+); \coqdoctac{try} (\coqdoctac{exact} \coqdocvar{I}); \coqdoctac{try} \coqdoctac{compute}; \coqdoctac{try} \coqdoctac{reflexivity}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\end{coqdoccode}
+\end{document}
