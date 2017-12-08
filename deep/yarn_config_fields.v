@@ -49,6 +49,7 @@ Export yarn_nodemanager_localizer_fetch_thread__count.
 Module yarn_nodemanager_resource_cpu__vcores_desc <: Field_ModuleType.
   Definition fName := "yarn.nodemanager.resource.cpu-vcores".
   Definition rTipe := rTipe_pos.
+  (* A common sense constraint: CPU cores used by nodemanager must be less than a machine can provide. *)
   Definition rProperty := fun value: positive => Pos.lt value (env_virt_CPU_cores myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
@@ -61,6 +62,7 @@ Export yarn_nodemanager_resource_cpu__vcores.
 Module yarn_nodemanager_resource_memory__mb_desc <: Field_ModuleType.
   Definition fName := "yarn.nodemanager.resource.memory-mb".
   Definition rTipe := rTipe_pos.
+  (* A common sense constraint: memory used by nodemanager must be less than a machine can provide. *)
   Definition rProperty := fun value: positive => Pos.lt value (env_phys_mem_mb myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
@@ -217,6 +219,7 @@ Export yarn_resourcemanager_scheduler_client_thread__count.
 Module yarn_resourcemanager_store_class_desc <: Field_ModuleType.
   Definition fName := "yarn.resourcemanager.store.class".
   Definition rTipe := rTipe_string.
+  (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-common/yarn-default.xml*)
   Definition rProperty := fun value: string => In value ("org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore"::"org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore"::nil).
   Definition fUnit := "".
   Definition fInterp := "".

@@ -75,9 +75,6 @@ unshelve refine (
     (yarn_app_mapreduce_am_job_task_listener_thread__count.mk            false   30%positive _ )
     (yarn_app_mapreduce_am_resource_cpu__vcores.mk            false    1%positive _ )
     (yarn_app_mapreduce_am_resource_mb.mk            false   2880%positive _ )
-
-    _
-    _
     _
     _
     _

@@ -25,6 +25,7 @@ Export mapred_child_java_opts.
 Module mapred_map_output_compression_type_desc <: Field_ModuleType.
   Definition fName := "mapred.map.output.compression.type".
   Definition rTipe := rTipe_string.
+  (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml*)
   Definition rProperty := fun value: string => In value ("NONE"::"RECORD"::"BLOCK"::nil).
   Definition fUnit := "".
   Definition fInterp := "".
@@ -109,6 +110,7 @@ Export mapreduce_job_counters_max.
 Module mapreduce_job_jvm_numtasks_desc <: Field_ModuleType.
   Definition fName := "mapreduce.job.jvm.numtasks".
   Definition rTipe := rTipe_Z.
+  (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml*)
   Definition rProperty := fun value: Z => (Z.eq value (-1%Z)) \/ (value > 0%Z).
   Definition fUnit := "".
   Definition fInterp := "".
@@ -229,6 +231,7 @@ Export mapreduce_job_speculative_speculative__cap__total__tasks.
 Module mapreduce_job_split_metainfo_maxsize_desc <: Field_ModuleType.
   Definition fName := "mapreduce.job.split.metainfo.maxsize".
   Definition rTipe := rTipe_Z.
+  (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml*)
   Definition rProperty := fun value: Z => (Z.eq value (-1%Z)) \/ value > 0.
   Definition fUnit := "".
   Definition fInterp := "".
@@ -301,6 +304,7 @@ Export mapreduce_jobtracker_handler_count.
 Module mapreduce_jobtracker_maxtasks_perjob_desc <: Field_ModuleType.
   Definition fName := "mapreduce.jobtracker.maxtasks.perjob".
   Definition rTipe := rTipe_Z.
+  (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml*)
   Definition rProperty := fun value: Z => (Z.eq value (-1%Z)) \/ value > 0.
   Definition fUnit := "".
   Definition fInterp := "".
@@ -361,6 +365,7 @@ Export mapreduce_map_maxattempts.
 Module mapreduce_map_memory_mb_desc <: Field_ModuleType.
   Definition fName := "mapreduce.map.memory.mb".
   Definition rTipe := rTipe_pos.
+  (* This constraint is a common sense. *)
   Definition rProperty := fun value: positive => Pos.lt value (env_phys_mem_mb myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
@@ -385,6 +390,7 @@ Export mapreduce_map_output_compress.
 Module mapreduce_map_output_compress_codec_desc <: Field_ModuleType.
   Definition fName := "mapreduce.map.output.compress.codec".
   Definition rTipe := rTipe_string.
+  (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml*)
   Definition rProperty := fun value: string => In value (env_comp_codecs myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
@@ -457,6 +463,7 @@ Export mapreduce_output_fileoutputformat_compress.
 Module mapreduce_output_fileoutputformat_compress_codec_desc <: Field_ModuleType.
   Definition fName := "mapreduce.output.fileoutputformat.compress.codec".
   Definition rTipe := rTipe_string.
+  (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml*)
   Definition rProperty := fun value: string => In value (env_comp_codecs myEnv).
   Definition fUnit := "".
   Definition fInterp := "".
@@ -469,6 +476,7 @@ Export mapreduce_output_fileoutputformat_compress_codec.
 Module mapreduce_output_fileoutputformat_compress_type_desc <: Field_ModuleType.
   Definition fName := "mapreduce.output.fileoutputformat.compress.type".
   Definition rTipe := rTipe_string.
+  (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml*)
   Definition rProperty := fun value: string => In value ("NONE"::"RECORD"::"BLOCK"::nil).
   Definition fUnit := "".
   Definition fInterp := "".
@@ -855,6 +863,7 @@ Export yarn_app_mapreduce_am_resource_cpu__vcores.
 Module yarn_app_mapreduce_am_resource_mb_desc <: Field_ModuleType.
   Definition fName := "yarn.app.mapreduce.am.resource.mb".
   Definition rTipe := rTipe_pos.
+  (* This constraint is a common sense. *)
   Definition rProperty := fun value: positive => Pos.lt value (env_phys_mem_mb myEnv).
   Definition fUnit := "".
   Definition fInterp := "".

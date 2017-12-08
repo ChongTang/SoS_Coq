@@ -9,11 +9,8 @@ Require Import ZArith.
 Require Import Reals.
 Open Scope Z_scope.
 
-(*Open Scope positive_scope.*)
-(*Open Scope R_scope.*)
-
 (*
-Here we define a Hadoop configuration. It's a compound system built based on sub-components.
+Here is a Hadoop configuration. It's a compound system built based on sub-components.
 It also contains a few dependent types and constrains.
 *)
 Record HadoopConfig := mk_hadoop_config {

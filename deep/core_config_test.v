@@ -5,17 +5,6 @@ Require Import Omega.
 (*
 Here's an example of a core configuration given with
 explicit proof terms (all [I]: the properties are just True).
-
-Definition a_core_config: hadoop_core_config :=
-  mk_hadoop_core_config
-    (* field values *)
-    (io_compression_codecs.mk  false "aCodecClassName, anotherCodecClassName" I)
-    (io_file_buffer_size.mk            false 4096%Z I)
-    (io_map_index_interval.mk     false 128%Z I)
-    (io_fake_bool.mk                    false false I)
-
-    (* proofs of constraint satisfaction *)
-.
 *)
 
 (*
@@ -48,21 +37,3 @@ Proof.
     (ipc_maximum_data_length.mk        false 67108864%positive _)
 ); try (exact I); try compute; auto.
 Qed.
-
-(*
-intro; inversion H.
-Unshelve.
-unfold io_file_buffer_size_desc.rType. omega.
-unfold io_fake_bool_desc.rType. exact I.
-Qed.
-Print a_core_config.
-*)
-
-(*
-  io_file_buffer_size: io_file_buffer_size.ftype
- ;io_map_index_interval: io_map_index_interval.ftype
- ;io_map_index_skip: io_map_index_skip.ftype
- ;io_seqfile_compress_blocksize: io_seqfile_compress_blocksize.ftype
- ;io_seqfile_sorter_recordlimit: io_seqfile_sorter_recordlimit.ftype
- ;ipc_maximum_data_length: ipc_maximum_data_length.ftype
-*)

@@ -37,8 +37,6 @@ unshelve refine (
     _
     _
     _
-    _
-    _
 ); try (exact I); try compute; try reflexivity; auto.
 Qed.
 

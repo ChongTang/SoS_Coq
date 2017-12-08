@@ -112,8 +112,6 @@ unshelve refine (
     _
     _
     _
-    _
-    _
 ); try (exact I); simpl; try (intro H); try (inversion H); try compute; try reflexivity; auto.
 Defined.
 
@@ -145,8 +143,6 @@ unshelve refine (
     (yarn_sharedcache_admin_thread__count.mk            false   1%positive _ )
     (yarn_sharedcache_client__server_thread__count.mk            false   50%positive _ )
     (yarn_sharedcache_enabled.mk            false   false _ )
-    _
-    _
     _
     _
     _
