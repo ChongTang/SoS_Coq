@@ -71,6 +71,11 @@ Record MapRedConfig := mk_mapred_config {
  ;mapreduce_tasktracker_map_tasks_maximum: mapreduce_tasktracker_map_tasks_maximum.ftype
  ;mapreduce_tasktracker_reduce_tasks_maximum: mapreduce_tasktracker_reduce_tasks_maximum.ftype
  ;mapreduce_tasktracker_taskmemorymanager_monitoringinterval: mapreduce_tasktracker_taskmemorymanager_monitoringinterval.ftype
+ ;yarn_app_mapreduce_am_command__opts: yarn_app_mapreduce_am_command__opts.ftype
+ ;yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size: yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size.ftype
+ ;yarn_app_mapreduce_am_job_task_listener_thread__count: yarn_app_mapreduce_am_job_task_listener_thread__count.ftype
+ ;yarn_app_mapreduce_am_resource_cpu__vcores: yarn_app_mapreduce_am_resource_cpu__vcores.ftype
+ ;yarn_app_mapreduce_am_resource_mb: yarn_app_mapreduce_am_resource_mb.ftype
 
  (* 
 Currently, JavaOpts is defined as a string. So we cannot check this constraint.*)
@@ -81,6 +86,15 @@ Currently, JavaOpts is defined as a string. So we cannot check this constraint.*
 
  ;maxsplit_lt_minsplit: Z.gt (Zpos (mapreduce_input_fileinputformat_split_maxsize.value mapreduce_input_fileinputformat_split_maxsize)) (Z.of_N (mapreduce_input_fileinputformat_split_minsize.value mapreduce_input_fileinputformat_split_minsize))
 
+(*uber mode related constraints*)
+ ;uber_const1: ((mapreduce_job_ubertask_enable.value mapreduce_job_ubertask_enable) = true) -> 
+    (Pos.gt (yarn_app_mapreduce_am_resource_mb.value yarn_app_mapreduce_am_resource_mb) (mapreduce_map_memory_mb.value mapreduce_map_memory_mb))
+ ;uber_const2: ((mapreduce_job_ubertask_enable.value mapreduce_job_ubertask_enable) = true) -> 
+    Pos.gt (yarn_app_mapreduce_am_resource_mb.value yarn_app_mapreduce_am_resource_mb) (mapreduce_reduce_memory_mb.value mapreduce_reduce_memory_mb)
+ ;uber_const3: ((mapreduce_job_ubertask_enable.value mapreduce_job_ubertask_enable) = true) -> 
+    Pos.gt (yarn_app_mapreduce_am_resource_cpu__vcores.value yarn_app_mapreduce_am_resource_cpu__vcores) (mapreduce_map_cpu_vcores.value mapreduce_map_cpu_vcores)
+ ;uber_const4: ((mapreduce_job_ubertask_enable.value mapreduce_job_ubertask_enable) = true) -> 
+    Pos.gt (yarn_app_mapreduce_am_resource_cpu__vcores.value yarn_app_mapreduce_am_resource_cpu__vcores) (mapreduce_reduce_cpu_vcores.value mapreduce_reduce_cpu_vcores)
 }.
 
 

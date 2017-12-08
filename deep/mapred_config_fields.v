@@ -800,3 +800,65 @@ Module mapreduce_job_reducer_unconditional__preempt_delay_sec_desc <: Field_Modu
 End mapreduce_job_reducer_unconditional__preempt_delay_sec_desc.
 Module mapreduce_job_reducer_unconditional__preempt_delay_sec := FieldModuleFunctor mapreduce_job_reducer_unconditional__preempt_delay_sec_desc.
 Export mapreduce_job_reducer_unconditional__preempt_delay_sec.
+
+
+Module yarn_app_mapreduce_am_command__opts_desc <: Field_ModuleType.
+  Definition fName := "yarn.app.mapreduce.am.command-opts".
+  Definition rTipe := rTipe_JavaOpts.
+  Definition rProperty := fun value: JavaOpts => True.
+  Definition fUnit := "".
+  Definition fInterp := "".
+  Definition fAdvice := "".
+End yarn_app_mapreduce_am_command__opts_desc.
+Module yarn_app_mapreduce_am_command__opts := FieldModuleFunctor yarn_app_mapreduce_am_command__opts_desc.
+Export yarn_app_mapreduce_am_command__opts.
+
+
+Module yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size_desc <: Field_ModuleType.
+  Definition fName := "yarn.app.mapreduce.am.containerlauncher.threadpool-initial-size".
+  Definition rTipe := rTipe_pos.
+  Definition rProperty := fun value: positive => True.
+  Definition fUnit := "".
+  Definition fInterp := "".
+  Definition fAdvice := "".
+End yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size_desc.
+Module yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size := FieldModuleFunctor yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size_desc.
+Export yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size.
+
+
+
+Module yarn_app_mapreduce_am_job_task_listener_thread__count_desc <: Field_ModuleType.
+  Definition fName := "yarn.app.mapreduce.am.job.task.listener.thread-count".
+  Definition rTipe := rTipe_pos.
+  Definition rProperty := fun value: positive => True.
+  Definition fUnit := "".
+  Definition fInterp := "".
+  Definition fAdvice := "".
+End yarn_app_mapreduce_am_job_task_listener_thread__count_desc.
+Module yarn_app_mapreduce_am_job_task_listener_thread__count := FieldModuleFunctor yarn_app_mapreduce_am_job_task_listener_thread__count_desc.
+Export yarn_app_mapreduce_am_job_task_listener_thread__count.
+
+
+
+Module yarn_app_mapreduce_am_resource_cpu__vcores_desc <: Field_ModuleType.
+  Definition fName := "yarn.app.mapreduce.am.resource.cpu-vcores".
+  Definition rTipe := rTipe_pos.
+  Definition rProperty := fun value: positive => True.
+  Definition fUnit := "".
+  Definition fInterp := "".
+  Definition fAdvice := "".
+End yarn_app_mapreduce_am_resource_cpu__vcores_desc.
+Module yarn_app_mapreduce_am_resource_cpu__vcores := FieldModuleFunctor yarn_app_mapreduce_am_resource_cpu__vcores_desc.
+Export yarn_app_mapreduce_am_resource_cpu__vcores.
+
+
+Module yarn_app_mapreduce_am_resource_mb_desc <: Field_ModuleType.
+  Definition fName := "yarn.app.mapreduce.am.resource.mb".
+  Definition rTipe := rTipe_pos.
+  Definition rProperty := fun value: positive => Pos.lt value (env_phys_mem_mb myEnv).
+  Definition fUnit := "".
+  Definition fInterp := "".
+  Definition fAdvice := "".
+End yarn_app_mapreduce_am_resource_mb_desc.
+Module yarn_app_mapreduce_am_resource_mb := FieldModuleFunctor yarn_app_mapreduce_am_resource_mb_desc.
+Export yarn_app_mapreduce_am_resource_mb.

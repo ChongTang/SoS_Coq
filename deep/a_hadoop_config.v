@@ -102,10 +102,19 @@ unshelve refine (
     (mapreduce_tasktracker_map_tasks_maximum.mk            false   2%positive _ )
     (mapreduce_tasktracker_reduce_tasks_maximum.mk            false   2%positive _ )
     (mapreduce_tasktracker_taskmemorymanager_monitoringinterval.mk     false   5000%positive _ )
+    (yarn_app_mapreduce_am_command__opts.mk            false   (mk_java_opts 1024%positive 100%positive) _ )
+    (yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size.mk            false   10%positive _ )
+    (yarn_app_mapreduce_am_job_task_listener_thread__count.mk            false   30%positive _ )
+    (yarn_app_mapreduce_am_resource_cpu__vcores.mk            false    1%positive _ )
+    (yarn_app_mapreduce_am_resource_mb.mk            false   2880%positive _ )
     _
     _
     _
-);try (exact I); compute; auto.
+    _
+    _
+    _
+    _
+); try (exact I); simpl; try (intro H); try (inversion H); try compute; try reflexivity; auto.
 Defined.
 
 
@@ -113,11 +122,6 @@ Definition a_yarn_config: YarnConfig.
 Proof.
 unshelve refine (
   mk_yarn_config
-    (yarn_app_mapreduce_am_command__opts.mk            false   (mk_java_opts 1024%positive 100%positive) _ )
-    (yarn_app_mapreduce_am_containerlauncher_threadpool__initial__size.mk            false   10%positive _ )
-    (yarn_app_mapreduce_am_job_task_listener_thread__count.mk            false   30%positive _ )
-    (yarn_app_mapreduce_am_resource_cpu__vcores.mk            false    1%positive _ )
-    (yarn_app_mapreduce_am_resource_mb.mk            false   2880%positive _ )
     (yarn_nodemanager_container__manager_thread__count.mk            false   20%positive _ )
     (yarn_nodemanager_localizer_client_thread__count.mk            false   5%positive _ )
     (yarn_nodemanager_localizer_fetch_thread__count.mk            false   4%positive _ )
