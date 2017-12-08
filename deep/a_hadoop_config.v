@@ -16,13 +16,13 @@ Definition a_core_config: CoreConfig. (* page size env parameter *)
 Proof.
 unshelve refine (
     mk_core_config
-    (io_file_buffer_size.mk            false 65536%positive _)
-    (io_map_index_interval.mk     false 128%positive _)
-    (io_map_index_skip.mk         false 0%N _)
-    (io_seqfile_compress_blocksize.mk  false 1000000%positive _)
-    (io_seqfile_sorter_recordlimit.mk  false 1000000%positive _)
-    (ipc_maximum_data_length.mk        false 67108864%positive _)
-); try (exact I); try compute; auto.
+    (io_file_buffer_size.mk                  false 65536%positive     _)
+    (io_map_index_interval.mk                false 128%positive       _)
+    (io_map_index_skip.mk                    false 0%N                _)
+    (io_seqfile_compress_blocksize.mk        false 1000000%positive   _)
+    (io_seqfile_sorter_recordlimit.mk        false 1000000%positive   _)
+    (ipc_maximum_data_length.mk              false 67108864%positive  _)
+); try (exact I); compute; reflexivity. 
 Defined.
 
 
@@ -31,7 +31,7 @@ Proof.
 unshelve refine (
     mk_hdfs_config
     (dfs_namenode_handler_count.mk            false 10%positive _)
-    (dfs_replication.mk     false 1%positive _)
+    (dfs_replication.mk                       false 1%positive _)
 ); try (exact I).
 Defined.
 
@@ -105,7 +105,7 @@ unshelve refine (
     _
     _
     _
-);try (exact I); simpl; try compute; try reflexivity; auto.
+);try (exact I); compute; auto.
 Defined.
 
 
