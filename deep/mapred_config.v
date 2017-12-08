@@ -73,10 +73,10 @@ Record MapRedConfig := mk_mapred_config {
  ;mapreduce_tasktracker_taskmemorymanager_monitoringinterval: mapreduce_tasktracker_taskmemorymanager_monitoringinterval.ftype
 
  (* 
-Currently, JavaOpts is defined as a string. So we cannot check this constraint.
- ;map_java_opts_le_map_mem: value mapreduce_map_java_opts <= value mapreduce_map_memory_mb
- ;reduce_java_opts_le_reduce_mem: value mapreduce_reduce_java_opts <= value mapreduce_reduce_memory_mb
-*)
+Currently, JavaOpts is defined as a string. So we cannot check this constraint.*)
+ ;map_java_opts_le_map_mem: Pos.lt (maximum_heap_size (mapreduce_map_java_opts.value mapreduce_map_java_opts)) (mapreduce_map_memory_mb.value mapreduce_map_memory_mb)
+ ;reduce_java_opts_le_reduce_mem: Pos.lt (maximum_heap_size (mapreduce_reduce_java_opts.value mapreduce_reduce_java_opts)) (mapreduce_reduce_memory_mb.value mapreduce_reduce_memory_mb)
+
 (*need N to Z*)
 
  ;maxsplit_lt_minsplit: Z.gt (Zpos (mapreduce_input_fileinputformat_split_maxsize.value mapreduce_input_fileinputformat_split_maxsize)) (Z.of_N (mapreduce_input_fileinputformat_split_minsize.value mapreduce_input_fileinputformat_split_minsize))
