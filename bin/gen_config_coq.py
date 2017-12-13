@@ -6,6 +6,7 @@ param_valus = {}
 param_module = {}
 param_mtype = {}
 param_ntype = {}
+option_type = {}
 
 def unify_machine_type(p, input_type):
     input_type = input_type.lower().strip()
@@ -24,8 +25,8 @@ def unify_machine_type(p, input_type):
 
 
 def get_native_type(machine_type):
-    if 'opt' in machine_type.lower():
-        return 'string'
+    # if 'opt' in machine_type.lower():
+    #     return 'string'
     if 'pos' in machine_type:
         return 'positive'
     if 'float' in machine_type.lower():
@@ -58,6 +59,7 @@ def create_coq_format_from_dict(index, conf, param_module):
     file_content = '''Require Import hadoop_config.
 Require Import Reals.
 Open Scope R_scope.
+Require Import Omega.
 
 '''
     core_module = '''Definition a_core_config: CoreConfig.
@@ -87,7 +89,13 @@ unshelve refine (
     for p in params:
         m = param_module[p].lower().strip()
         v = conf[p]
-        if param_ntype[p] == 'string':
+        if p in option_type:
+            opt_type = option_type.get(p)
+            if 'pos' in opt_type and int(v) > 0:
+                v = '(Some ' + v + '%positive)'
+            else:
+                v = 'None'
+        elif param_ntype[p] == 'string':
             v = '"' +v+ '"'
         elif param_ntype[p] == 'R':
             v = '(' + str(float(v)*100).split('.')[0] +'/100)%R'
@@ -96,7 +104,13 @@ unshelve refine (
         elif param_ntype[p] == 'positive':
             v = v + '%positive'
         elif param_ntype[p] == 'Z':
-            v = v + '%Z'
+            v = '(' + v + ')%Z'
+        elif param_ntype[p] == 'JavaOpts':
+            # parse number in java opts
+            mem_num = v[4:-1]
+            v = '(mk_java_opts ' + mem_num + '%positive 100%positive)'
+        
+
         p_in_coq = p.replace('.', '_').replace('-', '__')
 
         if 'core' in m:
@@ -125,33 +139,45 @@ unshelve refine (
 
     #############################################
     core_module += '''); try (exact I); try compute; auto.
-Qed.
+Defined.
 
 '''
     hdfs_module += '''); try (exact I).
-Qed.
+Defined.
 
 '''
     mapred_module += '''      _
-);try (exact I); simpl; try compute; try reflexivity; auto.
-Qed.
+    _
+    _
+    _
+    _
+); try (exact I); simpl; try (intro H); try (inversion H); try compute; try reflexivity; auto.
+Defined.
 
 '''
     yarn_module += '''      _
       _
       _
 ); try (exact I); compute; try reflexivity; auto.
-Qed.
+Defined.
 '''
 
     file_content += '\n'.join([core_module, hdfs_module, mapred_module, yarn_module])
+
     file_content += '''
-Definition a_hadoop_config := mk_hadoop_config myEnv
-    a_yarn_config
-    a_mapred_config
-    a_core_config
-    a_hdfs_config.
-'''
+    Definition a_hadoop_config: HadoopConfig.
+    Proof.
+     unshelve refine (
+      mk_hadoop_config
+        a_yarn_config
+        a_mapred_config
+        a_core_config
+        a_hdfs_config
+        _
+        _
+    ); try (exact I); simpl; omega.
+    Defined.
+    '''
     return file_content
 
 
@@ -177,6 +203,9 @@ for index, row in df.iterrows():
     native_type = get_native_type(machine_type)
     param_mtype[param] = machine_type
     param_ntype[param] = native_type
+    opt_type = str(row['OptionType']).strip()
+    if opt_type.startswith('option'):
+        option_type[param] = opt_type.strip()
 
 
 # how many configurations to generate randomly

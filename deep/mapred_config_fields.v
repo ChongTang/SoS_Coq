@@ -109,9 +109,10 @@ Export mapreduce_job_counters_max.
 
 Module mapreduce_job_jvm_numtasks_desc <: Field_ModuleType.
   Definition fName := "mapreduce.job.jvm.numtasks".
-  Definition rTipe := rTipe_Z.
+  Definition rTipe := rTipe_option_pos.
   (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml*)
-  Definition rProperty := fun value: Z => (Z.eq value (-1%Z)) \/ (value > 0%Z).
+  Definition rProperty := fun value: (option positive) => True.
+  (*Definition rProperty := fun value: Z => (Z.eq value (-1%Z)) \/ (value > 0%Z).*)
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -146,8 +147,8 @@ Export mapreduce_job_reduce_slowstart_completedmaps.
 
 Module mapreduce_job_running_map_limit_desc <: Field_ModuleType.
   Definition fName := "mapreduce.job.running.map.limit".
-  Definition rTipe := rTipe_Z.
-  Definition rProperty := fun value: Z => True.
+  Definition rTipe := rTipe_option_pos.
+  Definition rProperty := fun value: (option positive) => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -158,8 +159,8 @@ Export mapreduce_job_running_map_limit.
 
 Module mapreduce_job_running_reduce_limit_desc <: Field_ModuleType.
   Definition fName := "mapreduce.job.running.reduce.limit".
-  Definition rTipe := rTipe_Z.
-  Definition rProperty := fun value: Z => True.
+  Definition rTipe := rTipe_option_pos.
+  Definition rProperty := fun value: (option positive) => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -230,9 +231,11 @@ Export mapreduce_job_speculative_speculative__cap__total__tasks.
 
 Module mapreduce_job_split_metainfo_maxsize_desc <: Field_ModuleType.
   Definition fName := "mapreduce.job.split.metainfo.maxsize".
-  Definition rTipe := rTipe_Z.
+  (*Definition rTipe := rTipe_Z.
   (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml*)
-  Definition rProperty := fun value: Z => (Z.eq value (-1%Z)) \/ value > 0.
+  Definition rProperty := fun value: Z => (Z.eq value (-1%Z)) \/ value > 0.*)
+  Definition rTipe := rTipe_option_pos.
+  Definition rProperty := fun value: (option positive) => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -267,8 +270,8 @@ Export mapreduce_job_ubertask_maxmaps.
 
 Module mapreduce_job_ubertask_maxreduces_desc <: Field_ModuleType.
   Definition fName := "mapreduce.job.ubertask.maxreduces".
-  Definition rTipe := rTipe_pos.
-  Definition rProperty := fun value: positive => True.
+  Definition rTipe := rTipe_option_pos.
+  Definition rProperty := fun value: (option positive) => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -303,9 +306,11 @@ Export mapreduce_jobtracker_handler_count.
 
 Module mapreduce_jobtracker_maxtasks_perjob_desc <: Field_ModuleType.
   Definition fName := "mapreduce.jobtracker.maxtasks.perjob".
-  Definition rTipe := rTipe_Z.
+  (*Definition rTipe := rTipe_Z.
   (* This constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml*)
-  Definition rProperty := fun value: Z => (Z.eq value (-1%Z)) \/ value > 0.
+  Definition rProperty := fun value: Z => (Z.eq value (-1%Z)) \/ value > 0.*)
+  Definition rTipe := rTipe_option_pos.
+  Definition rProperty := fun value: (option positive) => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -560,8 +565,8 @@ Export mapreduce_reduce_memory_mb.
 
 Module mapreduce_reduce_merge_inmem_threshold_desc <: Field_ModuleType.
   Definition fName := "mapreduce.reduce.merge.inmem.threshold".
-  Definition rTipe := rTipe_Z.
-  Definition rProperty := fun value: Z => True.
+  Definition rTipe := rTipe_option_pos.
+  Definition rProperty := fun value: (option positive) => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
@@ -632,8 +637,8 @@ Export mapreduce_reduce_shuffle_retry__delay_max_ms.
 
 Module mapreduce_shuffle_max_connections_desc <: Field_ModuleType.
   Definition fName := "mapreduce.shuffle.max.connections".
-  Definition rTipe := rTipe_N.
-  Definition rProperty := fun value: N => True.
+  Definition rTipe := rTipe_option_pos.
+  Definition rProperty := fun value: (option positive) => True.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".
