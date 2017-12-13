@@ -9,7 +9,7 @@ Module io_file_buffer_size_desc <: Field_ModuleType.
   Definition fName := "io.file.buffer.size".
   Definition rTipe := rTipe_pos.
   (*The constraint is documented in https://hadoop.apache.org/docs/r2.7.4/hadoop-project-dist/hadoop-common/core-default.xml*)
-  Definition rProperty := fun value: positive => ((Zpos value) mod 4096%Z) = 0%Z.
+  Definition rProperty := fun value: positive => ((Zpos value) mod (Zpos (myEnv.(env_hw_page_size)))) = 0%Z.
   Definition fUnit := "".
   Definition fInterp := "".
   Definition fAdvice := "".

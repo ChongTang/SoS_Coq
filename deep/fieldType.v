@@ -11,7 +11,15 @@ We lift values of machine types to values of dependent pair types, representing 
 constraints (properties) over Coq "base" types denoted by these tipes. We make tipes explicit so that 
 later on we can match on them (whereas Coq doesn't support matching on Types directly.
 *)
-Inductive RTipe := rTipe_Z | rTipe_pos | rTipe_N | rTipe_string | rTipe_bool | rTipe_JavaOpts | rTipe_float.
+Inductive RTipe := 
+  | rTipe_Z 
+  | rTipe_pos 
+  | rTipe_N 
+  | rTipe_string 
+  | rTipe_bool 
+  | rTipe_JavaOpts 
+  | rTipe_float
+  | rTipe_option_pos.
 
 (*
 Map RTipes to corresponding native Coq types. We lift values of machine types to these native types.
@@ -21,13 +29,14 @@ declare explcit Coq types for the dependent pairs.
 *)
 Definition typeOfTipe (mt: RTipe): Type :=
   match mt with
-    | rTipe_Z         => Z              (* any integer *)
-    | rTipe_pos       => positive    (* positive integers *)
-    | rTipe_N         => N             (* non-negative integers *)
-    | rTipe_string    => string
-    | rTipe_bool      => bool
-    | rTipe_JavaOpts  => JavaOpts
-    | rTipe_float     => R
+    | rTipe_Z                   => Z              (* any integer *)
+    | rTipe_pos               => positive    (* positive integers *)
+    | rTipe_N                   => N             (* non-negative integers *)
+    | rTipe_string            => string
+    | rTipe_bool              => bool
+    | rTipe_JavaOpts     => JavaOpts
+    | rTipe_float             => R
+    | rTipe_option_pos  => option positive
   end.
 
 (*
